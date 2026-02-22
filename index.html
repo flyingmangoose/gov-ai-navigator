@@ -36,12 +36,12 @@
     const quadrants = [
       {
         id: "readiness",
-        title: "Quadrant 1: Readiness \\u00d7 Capability",
+        title: "Quadrant 1: Readiness \× Capability",
         subtitle: '"Can I buy it and what does it do?"',
-        xLabel: "Government Readiness \\u2192",
-        yLabel: "\\u2191 Capability Depth",
+        xLabel: "Government Readiness \→",
+        yLabel: "\↑ Capability Depth",
         xDesc: "FedRAMP status, procurement vehicles, compliance, gov references",
-        yDesc: "Narrow/single-use \\u2192 Broad transformative platform",
+        yDesc: "Narrow/single-use \→ Broad transformative platform",
         labels: {
           tl: { name: "High Potential, High Risk", desc: "Powerful but procurement headaches" },
           tr: { name: "Government-Ready Leaders", desc: "Strong capability + easy to procure" },
@@ -70,12 +70,12 @@
       },
       {
         id: "impact",
-        title: "Quadrant 2: Complexity \\u00d7 Impact",
+        title: "Quadrant 2: Complexity \× Impact",
         subtitle: '"What will it take and what will I get?"',
-        xLabel: "Implementation Complexity \\u2192",
-        yLabel: "\\u2191 Mission Impact",
-        xDesc: "Plug-and-play \\u2192 Deep integration & change management required",
-        yDesc: "Operational efficiency \\u2192 Citizen outcome transformation",
+        xLabel: "Implementation Complexity \→",
+        yLabel: "\↑ Mission Impact",
+        xDesc: "Plug-and-play \→ Deep integration & change management required",
+        yDesc: "Operational efficiency \→ Citizen outcome transformation",
         labels: {
           tl: { name: "Quick Wins", desc: "High impact, fast deployment" },
           tr: { name: "Strategic Transformers", desc: "High impact but major investment" },
@@ -104,12 +104,12 @@
       },
       {
         id: "independence",
-        title: "Quadrant 3: Independence \\u00d7 Maturity",
+        title: "Quadrant 3: Independence \× Maturity",
         subtitle: '"Am I getting locked in?"',
-        xLabel: "Vendor Independence \\u2192",
-        yLabel: "\\u2191 Gov Market Maturity",
-        xDesc: "Proprietary/locked-in \\u2192 Open/interoperable ecosystem",
-        yDesc: "Emerging/unproven \\u2192 Established/deployed at scale in gov",
+        xLabel: "Vendor Independence \→",
+        yLabel: "\↑ Gov Market Maturity",
+        xDesc: "Proprietary/locked-in \→ Open/interoperable ecosystem",
+        yDesc: "Emerging/unproven \→ Established/deployed at scale in gov",
         labels: {
           tl: { name: "Established but Locked", desc: "Proven but hard to leave" },
           tr: { name: "Open & Proven", desc: "Mature with exit flexibility" },
@@ -243,7 +243,7 @@
                 color: activeQuadrant === i ? "#60A5FA" : "#64748B",
                 fontSize: "12px", fontWeight: "600", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s",
               }}>
-                <span style={{ fontSize: "14px", marginRight: "6px" }}>{i === 0 ? "\\ud83c\\udfaf" : i === 1 ? "\\u26a1" : "\\ud83d\\udd13"}</span>
+                <span style={{ fontSize: "14px", marginRight: "6px" }}>{i === 0 ? "\\ud83c\\udfaf" : i === 1 ? "\⚡" : "\\ud83d\\udd13"}</span>
                 {q.subtitle}
               </button>
             ))}
