@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Government AI Navigator™ | Avero Advisors</title>
-  <meta name="description" content="Three lenses every government leader needs before investing in AI. Independent analysis of 23 tools across readiness, impact, and independence." />
+  <meta name="description" content="Three lenses every government leader needs before investing in AI. Independent analysis of 31 tools across readiness, impact, and independence." />
   <meta property="og:title" content="Government AI Navigator™ | Avero Advisors" />
-  <meta property="og:description" content="Independent analysis of 23 AI tools for government leaders." />
+  <meta property="og:description" content="Independent analysis of 31 AI tools for government leaders." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -74,6 +74,14 @@
           { name: "Madison AI", x: 55, y: 42, category: "Gov-Native AI", note: "Role-specific AI assistants, Washoe County equity partner" },
           { name: "DarwinAI", x: 50, y: 45, category: "Gov-Native AI", note: "AI governance/monitoring, helps agencies oversee AI adoption" },
           { name: "Polimorphic", x: 68, y: 48, category: "Gov-Native AI", note: "AI Front Desk + VoiceAI + CRM, 200+ depts, 36M residents" },
+          { name: "Hayden AI", x: 72, y: 42, category: "Public Safety AI", note: "Vision AI for transit enforcement, bus-mounted camera systems" },
+          { name: "Cardinality.ai", x: 65, y: 55, category: "HHS AI", note: "AI case management for Health & Human Services, AWS Gov Partner" },
+          { name: "Zencity", x: 70, y: 52, category: "Citizen Engagement", note: "AI-driven community trust platform, 300+ gov agencies" },
+          { name: "Mark43", x: 75, y: 58, category: "Public Safety AI", note: "Cloud-native public safety RMS/CAD, 200+ agencies" },
+          { name: "Just Appraised", x: 55, y: 35, category: "Gov-Native AI", note: "AI-assisted property tax assessment for county assessors" },
+          { name: "Forcemetrics", x: 58, y: 40, category: "Public Safety AI", note: "AI precision policing platform, law enforcement analytics" },
+          { name: "Peregrine", x: 62, y: 45, category: "Public Safety AI", note: "Integration platform connecting disparate public safety data" },
+          { name: "Esri", x: 88, y: 75, category: "GIS/Analytics", note: "Market-leading GIS with AI/ML, ubiquitous in gov, FedRAMP" },
         ],
       },
       {
@@ -115,6 +123,14 @@
           { name: "Madison AI", x: 22, y: 50, category: "Gov-Native AI", note: "Role-specific assistants, moderate setup, high staff impact" },
           { name: "DarwinAI", x: 28, y: 55, category: "Gov-Native AI", note: "AI oversight layer, moderate integration, governance impact" },
           { name: "Polimorphic", x: 35, y: 58, category: "Gov-Native AI", note: "Front desk automation, moderate setup, resident impact" },
+          { name: "Hayden AI", x: 40, y: 62, category: "Public Safety AI", note: "Hardware+AI deployment, measurable transit safety impact" },
+          { name: "Cardinality.ai", x: 55, y: 65, category: "HHS AI", note: "Moderate integration, transforms HHS case outcomes" },
+          { name: "Zencity", x: 20, y: 55, category: "Citizen Engagement", note: "Quick deploy, AI-powered community sentiment analysis" },
+          { name: "Mark43", x: 72, y: 75, category: "Public Safety AI", note: "Full RMS replacement, major public safety transformation" },
+          { name: "Just Appraised", x: 30, y: 45, category: "Gov-Native AI", note: "Targeted AI workflow, streamlines assessor operations" },
+          { name: "Forcemetrics", x: 35, y: 52, category: "Public Safety AI", note: "Analytics overlay, improves policing precision" },
+          { name: "Peregrine", x: 45, y: 60, category: "Public Safety AI", note: "Data integration layer, cross-system safety intelligence" },
+          { name: "Esri", x: 80, y: 82, category: "GIS/Analytics", note: "Deep integration, transformative spatial analysis for all depts" },
         ],
       },
       {
@@ -156,6 +172,14 @@
           { name: "Madison AI", x: 65, y: 30, category: "Gov-Native AI", note: "Newer, low lock-in, emerging gov AI player" },
           { name: "DarwinAI", x: 68, y: 32, category: "Gov-Native AI", note: "AI-agnostic oversight, low lock-in, new to market" },
           { name: "Polimorphic", x: 55, y: 45, category: "Gov-Native AI", note: "Gov OS approach, moderate lock-in, growing fast" },
+          { name: "Hayden AI", x: 50, y: 40, category: "Public Safety AI", note: "Proprietary hardware, growing transit authority adoption" },
+          { name: "Cardinality.ai", x: 55, y: 45, category: "HHS AI", note: "AWS-based, moderate portability, established in HHS" },
+          { name: "Zencity", x: 60, y: 55, category: "Citizen Engagement", note: "SaaS model, data exportable, strong gov footprint" },
+          { name: "Mark43", x: 45, y: 60, category: "Public Safety AI", note: "Cloud-native but specialized, growing agency count" },
+          { name: "Just Appraised", x: 65, y: 25, category: "Gov-Native AI", note: "New to market (2026), lightweight AI workflow" },
+          { name: "Forcemetrics", x: 55, y: 30, category: "Public Safety AI", note: "New to GovTech 100, emerging analytics platform" },
+          { name: "Peregrine", x: 60, y: 35, category: "Public Safety AI", note: "New to GovTech 100, integration-focused approach" },
+          { name: "Esri", x: 22, y: 90, category: "GIS/Analytics", note: "Deep ecosystem lock-in, most mature GIS platform in gov" },
         ],
       },
     ];
@@ -166,6 +190,7 @@
       "Citizen Engagement": "#10B981", "RPA/Automation": "#EC4899", "Data/Analytics": "#A78BFA",
       "Cybersecurity AI": "#EF4444", "Gov Platform": "#22D3EE", "Identity/Fraud": "#F472B6",
       "Enterprise AI": "#818CF8", "Analytics/AI": "#C084FC",
+        "Public Safety AI": "#EF4444", "HHS AI": "#F472B6", "GIS/Analytics": "#A3E635",
     };
     const QuadrantChart = ({ quadrant, hoveredTool, setHoveredTool }) => {
       const { labels, tools, xLabel, yLabel } = quadrant;
@@ -248,7 +273,7 @@
             </div>
             <div style={{ padding: "12px 32px 20px", background: "#0B1120" }}>
               <p style={{ fontSize: "13px", color: "#94A3B8", margin: "0", maxWidth: "600px", lineHeight: "1.5" }}>
-                Three lenses every government leader needs before investing in AI. Independent analysis of 23 tools across readiness, impact, and independence.
+                Three lenses every government leader needs before investing in AI. Independent analysis of 31 tools across readiness, impact, and independence.
               </p>
             </div>
           </div>
@@ -352,7 +377,7 @@
                 Get the Full Government AI Navigator Report
               </h2>
               <p style={{ fontSize: "13px", color: "#64748B", lineHeight: "1.6", margin: "0 0 24px 0" }}>
-                Detailed scoring methodology, vendor deep-dives, and actionable procurement guidance for all 23 tools — delivered as a comprehensive PDF.
+                Detailed scoring methodology, vendor deep-dives, and actionable procurement guidance for all 31 tools — delivered as a comprehensive PDF.
               </p>
               <div
                 className="hs-form-frame"
