@@ -318,23 +318,6 @@
                 </div>
               </div>
             </div>
-            {/* Tool Directory */}
-            <div style={{ flex: "0 1 320px", minWidth: "280px" }}>
-              <div style={{ background: "#0F172A", borderRadius: "12px", border: "1px solid #1E293B", padding: "16px", maxHeight: "580px", overflowY: "auto" }}>
-                <h3 style={{ fontSize: "13px", fontWeight: "700", margin: "0 0 12px 0", color: "#94A3B8", textTransform: "uppercase", letterSpacing: "1px" }}>
-                  Tool Directory ({q.tools.length})
-                </h3>
-                {allCategories.map(cat => (
-                  <div key={cat} style={{ marginBottom: "12px" }}>
-                    <div style={{ fontSize: "10px", fontWeight: "700", color: categoryColors[cat], textTransform: "uppercase", letterSpacing: "1px", padding: "0 10px", marginBottom: "4px" }}>
-                      {cat}
-                    </div>
-                    {q.tools.filter(t => t.category === cat).map(tool => (
-                      <ToolRow key={tool.name} tool={tool} isHovered={hoveredTool === tool.name} onHover={() => setHoveredTool(tool.name)} onLeave={() => setHoveredTool(null)} />
-                    ))}
-                  </div>
-                ))}
-              </div>
               {/* Legend */}
               <div style={{ marginTop: "12px", padding: "12px 16px", borderRadius: "10px", background: "#0F172A", border: "1px solid #1E293B" }}>
                 <div style={{ fontSize: "10px", fontWeight: "700", color: "#64748B", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "8px" }}>
@@ -354,6 +337,23 @@
                 })}
               </div>
             </div>
+            {/* Tool Directory */}
+            <div style={{ flex: "0 1 320px", minWidth: "280px" }}>
+              <div style={{ background: "#0F172A", borderRadius: "12px", border: "1px solid #1E293B", padding: "16px", maxHeight: "580px", overflowY: "auto" }}>
+                <h3 style={{ fontSize: "13px", fontWeight: "700", margin: "0 0 12px 0", color: "#94A3B8", textTransform: "uppercase", letterSpacing: "1px" }}>
+                  Tool Directory ({q.tools.length})
+                </h3>
+                {allCategories.map(cat => (
+                  <div key={cat} style={{ marginBottom: "12px" }}>
+                    <div style={{ fontSize: "10px", fontWeight: "700", color: categoryColors[cat], textTransform: "uppercase", letterSpacing: "1px", padding: "0 10px", marginBottom: "4px" }}>
+                      {cat}
+                    </div>
+                    {q.tools.filter(t => t.category === cat).map(tool => (
+                      <ToolRow key={tool.name} tool={tool} isHovered={hoveredTool === tool.name} onHover={() => setHoveredTool(tool.name)} onLeave={() => setHoveredTool(null)} />
+                    ))}
+                  </div>
+                ))}
+              </div>
           </div>
           {/* Report Download Form */}
           <div style={{
