@@ -235,11 +235,12 @@
           <div style={{ display: "flex", gap: "4px", padding: "16px 32px", overflowX: "auto" }}>
             {quadrants.map((q, i) => (
               <button key={q.id} onClick={() => { setActiveQuadrant(i); setHoveredTool(null); }} style={{
-                padding: "10px 16px", borderRadius: "8px",
-                border: activeQuadrant === i ? "1px solid #3B82F6" : "1px solid #1E293B",
-                background: activeQuadrant === i ? "rgba(59,130,246,0.1)" : "transparent",
-                color: activeQuadrant === i ? "#60A5FA" : "#64748B",
-                fontSize: "12px", fontWeight: "600", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s",
+                padding: "14px 24px", borderRadius: "12px",
+                border: activeQuadrant === i ? "2px solid #C4883C" : "2px solid #2D3A50",
+                background: activeQuadrant === i ? "rgba(196,136,60,0.15)" : "rgba(30,41,59,0.5)",
+                color: activeQuadrant === i ? "#E8B86D" : "#94A3B8",
+                fontSize: "15px", fontWeight: "700", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s",
+                boxShadow: activeQuadrant === i ? "0 2px 12px rgba(196,136,60,0.2)" : "none",
               }}>
                 <span style={{ fontSize: "14px", marginRight: "6px" }}>{i === 0 ? "🎯" : i === 1 ? "⚡" : "🔓"}</span>
                 {q.subtitle}
