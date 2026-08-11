@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>"Start at Zero" Government AI Navigator™ | Avèro Advisors</title>
-  <meta name="description" content='"Start at Zero": Three lenses every government leader needs before investing in AI. Independent analysis of 31 tools across readiness, impact, and independence." />
+  <meta name="description" content='"Start at Zero": Three lenses every government leader needs before investing in AI. Independent analysis of 31 tools across readiness, impact, and independence. August 2026 edition.' />
   <meta property="og:title" content='"Start at Zero" Government AI Navigator™ | Avèro Advisors' />
   <meta property="og:description" content="Independent analysis of 31 AI tools for government leaders." />
   <meta property="og:type" content="website" />
@@ -41,7 +41,7 @@
         subtitle: '"Can I buy it and what does it do?"',
         xLabel: "Government Readiness →",
         yLabel: "↑ Capability Depth",
-        xDesc: "FedRAMP status, procurement vehicles, compliance, gov references",
+        xDesc: "GovRAMP/FedRAMP status, procurement vehicles, compliance, gov references",
         yDesc: "Narrow/single-use → Broad transformative platform",
         labels: {
           tl: { name: "High Potential, High Risk", desc: "Powerful but procurement headaches" },
@@ -50,13 +50,13 @@
           br: { name: "Safe but Limited", desc: "Easy to buy but narrow use" },
         },
         tools: [
-          { name: "Microsoft Copilot", x: 82, y: 85, category: "GenAI/Copilot", note: "FedRAMP High, M365 GCC integration, 2.3M+ fed users" },
+          { name: "Microsoft Copilot", x: 82, y: 85, category: "GenAI/Copilot", note: "FedRAMP High, M365 GCC integration, dominant federal install base" },
           { name: "Google Gemini", x: 78, y: 80, category: "GenAI/Copilot", note: "First GenAI FedRAMP High (Mar 2025), Workspace integration" },
-          { name: "Anthropic Claude", x: 42, y: 78, category: "GenAI/LLM", note: "FedRAMP High via AWS/GCP, growing gov adoption" },
-          { name: "OpenAI ChatGPT", x: 45, y: 80, category: "GenAI/LLM", note: "Via Azure Gov FedRAMP, 90K+ gov users" },
+          { name: "Anthropic Claude", x: 78, y: 78, category: "GenAI/LLM", note: "FedRAMP High standalone product (Claude for Government), plus Bedrock GovCloud and Vertex paths" },
+          { name: "OpenAI ChatGPT", x: 45, y: 80, category: "GenAI/LLM", note: "FedRAMP High offering tied to Azure Government only; growing gov adoption" },
           { name: "ServiceNow Gov", x: 80, y: 75, category: "Workflow/ITSM", note: "OneGov GSA deal, 70% discounts, strong fed presence" },
           { name: "Salesforce GovCloud", x: 76, y: 72, category: "CRM/Platform", note: "Missionforce launch, US Army contract win" },
-          { name: "Tyler Technologies", x: 90, y: 55, category: "Gov ERP", note: "44K+ installations, pure-play gov, AI partnerships" },
+          { name: "Tyler Technologies", x: 90, y: 55, category: "Gov ERP", note: "45K+ installations, $2.3B revenue, pure-play gov; acquired MyGov (2026)" },
           { name: "Oracle Cloud Gov", x: 75, y: 70, category: "ERP/Cloud", note: "Sovereign cloud, IL5 authorized, FedRAMP" },
           { name: "SAP (Joule AI)", x: 65, y: 58, category: "ERP/AI", note: "S/4HANA Cloud AI, strong enterprise but limited gov-specific" },
           { name: "Workday AI", x: 72, y: 65, category: "HCM/Finance", note: "Strong in large gov HCM, AI for workforce planning" },
@@ -65,22 +65,22 @@
           { name: "Citibot", x: 80, y: 30, category: "Citizen Engagement", note: "Gov-only AI chatbot, SMS/web, Carahsoft distribution" },
           { name: "Polco AI (Polly)", x: 78, y: 35, category: "Citizen Engagement", note: "Purpose-built local gov, 500+ gov clients, ICMA grounded" },
           { name: "Accela", x: 75, y: 40, category: "Gov Platform", note: "Permitting/licensing AI, cloud-native, growing" },
-          { name: "OpenGov", x: 73, y: 42, category: "Gov Platform", note: "Budgeting/planning AI, procurement workflows" },
+          { name: "OpenGov", x: 73, y: 42, category: "Gov Platform", note: "Budgeting/planning AI; acquired Ignatius (Feb 2026); new CEO Apr 2026" },
           { name: "CGI Advantage", x: 74, y: 58, category: "Gov ERP", note: "Federal/state ERP, 91K employees, AI integration" },
         
-          { name: "CentralSquare", x: 82, y: 60, category: "Gov Platform", note: "Public safety + admin, 8K+ agencies, major S&L platform" },
+          { name: "CentralSquare", x: 82, y: 60, category: "Gov Platform", note: "Public safety + admin, 8K+ agencies; Blueline acquisition adds AI police report writing" },
           { name: "CivicPlus", x: 76, y: 38, category: "Citizen Engagement", note: "Website/meeting/civic engagement with AI, 4K+ clients" },
           { name: "PublicInput", x: 70, y: 28, category: "Citizen Engagement", note: "Community engagement AI analytics, 150+ clients" },
           { name: "Madison AI", x: 52, y: 52, category: "Gov-Native AI", note: "Role-specific AI assistants, Washoe County equity partner" },
-          { name: "DarwinAI", x: 30, y: 35, category: "Gov-Native AI", note: "AI governance/monitoring, helps agencies oversee AI adoption" },
+          { name: "Darwin AI", x: 45, y: 40, category: "Gov-Native AI", note: "AI governance/monitoring; Carahsoft deal (Apr 2026) adds NASPO, TIPS, OMNIA vehicles" },
           { name: "Polimorphic", x: 55, y: 53, category: "Gov-Native AI", note: "AI Front Desk + VoiceAI + CRM, 200+ depts, 36M residents" },
           { name: "Hayden AI", x: 72, y: 42, category: "Public Safety AI", note: "Vision AI for transit enforcement, bus-mounted camera systems" },
           { name: "Cardinality.ai", x: 35, y: 40, category: "HHS AI", note: "AI case management for Health & Human Services, AWS Gov Partner" },
-          { name: "Zencity", x: 70, y: 52, category: "Citizen Engagement", note: "AI-driven community trust platform, 300+ gov agencies" },
+          { name: "Zencity", x: 70, y: 52, category: "Citizen Engagement", note: "AI community trust platform, 400+ gov agencies; acquired Commonplace" },
           { name: "Mark43", x: 75, y: 58, category: "Public Safety AI", note: "Cloud-native public safety RMS/CAD, 200+ agencies" },
           { name: "Just Appraised", x: 32, y: 28, category: "Gov-Native AI", note: "AI-assisted property tax assessment for county assessors" },
           { name: "Forcemetrics", x: 28, y: 32, category: "Public Safety AI", note: "AI precision policing platform, law enforcement analytics" },
-          { name: "Peregrine", x: 35, y: 38, category: "Public Safety AI", note: "Integration platform connecting disparate public safety data" },
+          { name: "Peregrine", x: 35, y: 38, category: "Public Safety AI", note: "Public safety data integration; $190M Sequoia-led raise" },
           { name: "Esri", x: 88, y: 75, category: "GIS/Analytics", note: "Market-leading GIS with AI/ML, ubiquitous in gov, FedRAMP" },
         ],
       },
@@ -101,7 +101,7 @@
         tools: [
           { name: "Microsoft Copilot", x: 35, y: 70, category: "GenAI/Copilot", note: "Integrates into existing M365, moderate change mgmt" },
           { name: "Google Gemini", x: 38, y: 65, category: "GenAI/Copilot", note: "Workspace integration, training required" },
-          { name: "Anthropic Claude", x: 28, y: 42, category: "GenAI/LLM", note: "API-first, relatively easy integration" },
+          { name: "Anthropic Claude", x: 28, y: 42, category: "GenAI/LLM", note: "Standalone gov product or API-first, relatively easy integration" },
           { name: "OpenAI ChatGPT", x: 25, y: 38, category: "GenAI/LLM", note: "Consumer-friendly, fast to deploy" },
           { name: "ServiceNow Gov", x: 60, y: 75, category: "Workflow/ITSM", note: "Significant workflow redesign, high operational impact" },
           { name: "Salesforce GovCloud", x: 65, y: 72, category: "CRM/Platform", note: "CRM transformation, citizen case mgmt impact" },
@@ -121,7 +121,7 @@
           { name: "CivicPlus", x: 25, y: 42, category: "Citizen Engagement", note: "Quick website AI integration, community impact" },
           { name: "PublicInput", x: 18, y: 38, category: "Citizen Engagement", note: "Easy deployment, direct citizen engagement impact" },
           { name: "Madison AI", x: 52, y: 55, category: "Gov-Native AI", note: "Role-specific assistants, moderate setup, high staff impact" },
-          { name: "DarwinAI", x: 30, y: 48, category: "Gov-Native AI", note: "AI oversight layer, moderate integration, governance impact" },
+          { name: "Darwin AI", x: 30, y: 48, category: "Gov-Native AI", note: "AI oversight layer, moderate integration, governance impact" },
           { name: "Polimorphic", x: 53, y: 56, category: "Gov-Native AI", note: "Front desk automation, moderate setup, resident impact" },
           { name: "Hayden AI", x: 40, y: 62, category: "Public Safety AI", note: "Hardware+AI deployment, measurable transit safety impact" },
           { name: "Cardinality.ai", x: 55, y: 65, category: "HHS AI", note: "Moderate integration, transforms HHS case outcomes" },
@@ -150,11 +150,11 @@
         tools: [
           { name: "Microsoft Copilot", x: 25, y: 85, category: "GenAI/Copilot", note: "Deep M365 lock-in, extremely mature in gov" },
           { name: "Google Gemini", x: 35, y: 70, category: "GenAI/Copilot", note: "Workspace dependency, growing gov presence" },
-          { name: "Anthropic Claude", x: 72, y: 35, category: "GenAI/LLM", note: "Multi-cloud, API-standard, newer to gov" },
+          { name: "Anthropic Claude", x: 72, y: 62, category: "GenAI/LLM", note: "Multicloud, standalone FedRAMP High product, deployed across all three federal branches" },
           { name: "OpenAI ChatGPT", x: 42, y: 55, category: "GenAI/LLM", note: "Azure dependency, strong adoption momentum" },
           { name: "ServiceNow Gov", x: 30, y: 80, category: "Workflow/ITSM", note: "Platform lock-in, very established in fed" },
           { name: "Salesforce GovCloud", x: 28, y: 78, category: "CRM/Platform", note: "CRM ecosystem lock-in, long gov history" },
-          { name: "Tyler Technologies", x: 20, y: 88, category: "Gov ERP", note: "Proprietary/closed ecosystem, 13K locations" },
+          { name: "Tyler Technologies", x: 20, y: 88, category: "Gov ERP", note: "Proprietary/closed ecosystem, deepest install base in gov" },
           { name: "Oracle Cloud Gov", x: 30, y: 82, category: "ERP/Cloud", note: "Oracle ecosystem, deep gov entrenchment" },
           { name: "SAP (Joule AI)", x: 32, y: 80, category: "ERP/AI", note: "SAP ecosystem lock-in, massive gov installed base" },
           { name: "Workday AI", x: 35, y: 72, category: "HCM/Finance", note: "Moderate lock-in, strong in large gov HCM" },
@@ -170,7 +170,7 @@
           { name: "CivicPlus", x: 50, y: 50, category: "Citizen Engagement", note: "Mid-range lock-in, cloud-native platform" },
           { name: "PublicInput", x: 62, y: 35, category: "Citizen Engagement", note: "Lightweight, interoperable, newer entrant" },
           { name: "Madison AI", x: 55, y: 52, category: "Gov-Native AI", note: "Newer, low lock-in, emerging gov AI player" },
-          { name: "DarwinAI", x: 68, y: 28, category: "Gov-Native AI", note: "AI-agnostic oversight, low lock-in, new to market" },
+          { name: "Darwin AI", x: 68, y: 32, category: "Gov-Native AI", note: "AI-agnostic oversight, low lock-in; Carahsoft vehicles arriving" },
           { name: "Polimorphic", x: 56, y: 53, category: "Gov-Native AI", note: "Gov OS approach, moderate lock-in, growing fast" },
           { name: "Hayden AI", x: 50, y: 40, category: "Public Safety AI", note: "Proprietary hardware, growing transit authority adoption" },
           { name: "Cardinality.ai", x: 55, y: 45, category: "HHS AI", note: "AWS-based, moderate portability, established in HHS" },
@@ -291,14 +291,14 @@
               <div>
                 <div style={{ fontSize: "10px", fontWeight: "700", color: "#C4883C", letterSpacing: "0.5px", textTransform: "uppercase" }}>The Book</div>
                 <div style={{ fontSize: "12px", fontWeight: "700", color: "#1B2A4A", lineHeight: "1.2" }}>Start at Zero</div>
-                <div style={{ fontSize: "10px", color: "#4A5568", lineHeight: "1.2" }}>Coming Spring 2026 →</div>
+                <div style={{ fontSize: "10px", color: "#4A5568", lineHeight: "1.2" }}>Get the book →</div>
               </div>
             </a>
           </div>
         </div>
             <div style={{ padding: "12px 32px 20px", background: "#0B1120" }}>
               <p style={{ fontSize: "13px", color: "#94A3B8", margin: "0", maxWidth: "600px", lineHeight: "1.5" }}>
-                Three lenses every government leader needs before investing in AI. Independent analysis of 31 tools across readiness, impact, and independence.
+                Three lenses every government leader needs before investing in AI. Independent analysis of 31 tools across readiness, impact, and independence. August 2026 edition.
               </p>
             </div>
           </div>
@@ -339,7 +339,7 @@
                   ⚠️ Before you buy any of these tools...
                 </div>
                 <div style={{ fontSize: "12px", color: "#94A3B8", lineHeight: "1.5" }}>
-                  Have you completed <span style={{ color: "#F1F5F9", fontWeight: "600" }}>Phase Zero</span>? Independent readiness assessment ensures your AI investment delivers ROI — not regret. Avero Advisors provides vendor-neutral guidance for government technology decisions.
+                  Have you completed <span style={{ color: "#F1F5F9", fontWeight: "600" }}>Phase Zero</span>? Independent readiness assessment ensures your AI investment delivers ROI, not regret. Avero Advisors provides vendor-neutral guidance for government technology decisions.
                 </div>
               </div>
             </div>
@@ -403,7 +403,7 @@
                 Get the Full Government AI Navigator Report
               </h2>
               <p style={{ fontSize: "13px", color: "#64748B", lineHeight: "1.6", margin: "0 0 24px 0" }}>
-                Detailed scoring methodology, vendor deep-dives, and actionable procurement guidance for all 31 tools — delivered as a comprehensive PDF.
+                Detailed scoring methodology, vendor deep-dives, and actionable procurement guidance for all 31 tools, delivered as a comprehensive PDF. Updated for August 2026.
               </p>
               <div
                 className="hs-form-frame"
@@ -417,7 +417,7 @@
           {/* Footer */}
           <div style={{ padding: "16px 32px", borderTop: "1px solid #1E293B", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
             <div style={{ fontSize: "10px", color: "#475569" }}>© 2026 Avero Advisors. Independent analysis. Not affiliated with any vendor listed.</div>
-            <div style={{ fontSize: "10px", color: "#475569" }}>Data as of February 2026 | Positions reflect Avero's independent assessment</div>
+            <div style={{ fontSize: "10px", color: "#475569" }}>Data as of August 2026 | Positions reflect Avero's independent assessment</div>
           </div>
         </div>
       );
