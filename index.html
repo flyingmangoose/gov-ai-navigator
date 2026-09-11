@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>"Start at Zero" Government AI Navigator | Avero Advisors</title>
-  <meta name="description" content="Independent map of 36 AI products plus Caliber, Avero's buyer-side method, for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money." />
+  <meta name="description" content="Independent map of 43 AI products for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money. Caliber is Avero methodology, not a product on the map." />
   <link rel="canonical" href="https://govai.averoadvisors.com/" />
   <meta property="og:title" content='"Start at Zero" Government AI Navigator | Avero Advisors' />
-  <meta property="og:description" content="Independent map of 36 AI products plus Caliber, Avero's buyer-side method, for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money." />
+  <meta property="og:description" content="Independent map of 43 AI products for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money. Caliber is Avero methodology, not a product on the map." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://govai.averoadvisors.com/" />
   <meta property="og:site_name" content="Government AI Navigator" />
@@ -16,12 +16,12 @@
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Government AI Navigator — Start at Zero. Independent map of 36 AI products plus Caliber for state and local leaders." />
+  <meta property="og:image:alt" content="Government AI Navigator — Start at Zero. Independent map of 43 AI products for state and local leaders." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content='"Start at Zero" Government AI Navigator | Avero Advisors' />
-  <meta name="twitter:description" content="Independent map of 36 AI products plus Caliber, Avero's buyer-side method, for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money." />
+  <meta name="twitter:description" content="Independent map of 43 AI products for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money. Caliber is Avero methodology, not a product on the map." />
   <meta name="twitter:image" content="https://govai.averoadvisors.com/assets/og-image.png" />
-  <meta name="twitter:image:alt" content="Government AI Navigator — Start at Zero. Independent map of 36 AI products plus Caliber for state and local leaders." />
+  <meta name="twitter:image:alt" content="Government AI Navigator — Start at Zero. Independent map of 43 AI products for state and local leaders." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -242,8 +242,22 @@
     .footer a:hover { color: var(--gold-soft); }
     .gold-link { color: var(--gold-soft); font-weight: 600; }
     .empty { font-size: 13px; color: var(--faint); padding: 12px; }
+    .caliber-rail {
+      margin: 0 24px 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(196,136,60,0.45);
+      background: linear-gradient(135deg, rgba(196,136,60,0.14), rgba(15,23,42,0.9));
+    }
+    .caliber-rail .kicker-sm {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--gold-soft); margin-bottom: 6px;
+    }
+    .caliber-rail h2 { font-size: 17px; font-weight: 800; color: #F8FAFC; margin: 0 0 6px; }
+    .caliber-rail p { font-size: 14px; color: #CBD5E1; line-height: 1.55; margin: 0; }
     @media (max-width: 720px) {
-      .cream-bar, .lede-bar, .whats-new, .tabs, .toolbar, .layout, .download, .footer { padding-left: 16px; padding-right: 16px; }
+      .cream-bar, .lede-bar, .whats-new, .tabs, .toolbar, .layout, .download, .footer, .caliber-rail { padding-left: 16px; padding-right: 16px; }
+      .caliber-rail { margin-left: 16px; margin-right: 16px; }
       .tab { font-size: 13px; padding: 10px 12px; }
       .dir { max-height: none; }
       .brand-rule { display: none; }
@@ -257,8 +271,8 @@
   <script type="text/babel">
     const { useState, useEffect, useMemo } = React;
     const EDITION = "September 2026";
-    const PRODUCT_COUNT = 36;
-    const TOTAL_MAPPED = 37;
+    const PRODUCT_COUNT = 43;
+    const TOTAL_MAPPED = 43;
 
     const LENSES = [
       {
@@ -311,32 +325,39 @@
     const TOOLS = [
       { name: "Microsoft Copilot", category: "GenAI/Copilot",
         notes: {
-          readiness: "M365 Copilot in GCC and GCC High. Microsoft states GCC High Copilot is built to FedRAMP High-oriented controls. Dominant SLED M365 install base.",
-          impact: "Lands inside existing M365; real value still depends on data hygiene and change management.",
+          readiness: "M365 Copilot is GA in GCC, GCC High, and DoD. Microsoft documents Researcher/Analyst agents plus Agent Builder in government clouds; Copilot Studio publishing to Teams/M365 is listed for GCC. GCC High Copilot is built to FedRAMP High-oriented controls. Dominant SLED M365 install base.",
+          impact: "Lands inside existing M365. Agents raise the ceiling; value still depends on data hygiene, grounding policy, and change management.",
           independence: "Deep M365 lock-in. Extremely mature in government productivity stacks.",
         },
-        pos: { readiness: [84, 86], impact: [34, 70], independence: [22, 88] } },
-      { name: "Google Gemini", category: "GenAI/Copilot",
+        pos: { readiness: [86, 88], impact: [36, 74], independence: [20, 90] } },
+      { name: "Gemini for Government", category: "GenAI/Copilot",
         notes: {
-          readiness: "Gemini for Government is listed FedRAMP Certified on the FedRAMP AI page (early 2026). Workspace path for agencies already on Google.",
+          readiness: "Relabeled from Google Gemini. Gemini for Government is listed FedRAMP Certified on the FedRAMP AI page (early 2026). Workspace path for agencies already on Google.",
           impact: "Useful where Workspace is the system of work; training and policy work still required.",
           independence: "Workspace dependency. Growing public-sector presence, still behind Microsoft in most SLED offices.",
         },
         pos: { readiness: [80, 80], impact: [38, 66], independence: [34, 72] } },
       { name: "Anthropic Claude", category: "GenAI/LLM",
         notes: {
-          readiness: "Claude for Government is Anthropic’s FedRAMP High standalone product. Anthropic states most state/local uses fit Claude Enterprise; C4G is the High path. Also on Bedrock GovCloud and Vertex Assured Workloads.",
+          readiness: "Claude for Government (C4G) is Anthropic’s FedRAMP High standalone product. Anthropic states most state/local uses fit Claude Enterprise; C4G is the High path. Also on Bedrock GovCloud and Vertex Assured Workloads.",
           impact: "API-first or standalone chat. Easier than an ERP; still needs use-case design and records policy.",
           independence: "Multicloud options reduce single-cloud lock-in versus Azure-only stacks. SLED references still catching up to federal.",
         },
         pos: { readiness: [78, 80], impact: [28, 48], independence: [74, 64] } },
-      { name: "OpenAI ChatGPT", category: "GenAI/LLM",
+      { name: "ChatGPT Enterprise (FedRAMP Moderate)", category: "GenAI/LLM",
         notes: {
-          readiness: "ChatGPT Enterprise and API Platform: FedRAMP Certified 20x Moderate as of 9 Jan 2026 (marketplace FR2533155773). No longer Azure-Government-only. Carahsoft is a public-sector reseller. SLED still confirming local vehicles.",
-          impact: "Fast for knowledge work and drafting. Mission systems still sit elsewhere.",
-          independence: "Less Azure-only than the August edition implied. Consumer-grade confusion remains a governance risk.",
+          readiness: "OpenAI-managed SaaS. ChatGPT Enterprise and API Platform: FedRAMP Certified 20x Moderate as of 9 Jan 2026 (FR2533155773). This is not ChatGPT Gov and is not FedRAMP High. Carahsoft is a public-sector reseller. SLED still confirming local vehicles.",
+          impact: "Fastest OpenAI path for knowledge work and drafting. Feature set is a FedRAMP-restricted slice of commercial Enterprise.",
+          independence: "SaaS lock to OpenAI’s gov endpoint (gov.api.openai.com for API). Existing commercial Enterprise workspaces do not convert in place.",
         },
-        pos: { readiness: [70, 80], impact: [24, 42], independence: [52, 62] } },
+        pos: { readiness: [72, 80], impact: [22, 42], independence: [54, 58] } },
+      { name: "ChatGPT Gov", category: "GenAI/LLM",
+        notes: {
+          readiness: "Customer-hosted ChatGPT frontend on the agency’s Azure commercial or Azure Government + Azure OpenAI. OpenAI’s public page: this is how agencies pursue IL5 / CJIS / FedRAMP High on their own ATO — it is not OpenAI-managed High SaaS. The August “High only via Azure” line described this path, not the Moderate SaaS.",
+          impact: "Same Enterprise-class chat, more IT and authorization work. Complexity is the agency cloud, not the prompt window.",
+          independence: "Azure gravity. You own the container and the ATO; you also own the ops.",
+        },
+        pos: { readiness: [46, 80], impact: [58, 50], independence: [36, 48] } },
       { name: "Perplexity Enterprise for Government", category: "GenAI/LLM", added: true,
         notes: {
           readiness: "FedRAMP Certified 20x Class B (Low) as of 1 Feb 2026 (FR2604643715). GSA MAS / OneGov pricing is federal-first. SLED path exists via MAS piggyback in some states; not a SLED-native product.",
@@ -346,11 +367,11 @@
         pos: { readiness: [58, 56], impact: [20, 44], independence: [58, 36] } },
       { name: "AWS Bedrock", category: "AI Platform",
         notes: {
-          readiness: "GovCloud / FedRAMP High path for several foundation models. Common SLED pattern: build on Bedrock rather than buy a chatbot SKU.",
+          readiness: "GovCloud / FedRAMP High path for several foundation models (Claude, others as listed in AWS gov docs). Common SLED pattern: multi-model access rather than a single chatbot SKU. Confirm each model’s authorization boundary — Bedrock is not a blanket High for every model.",
           impact: "Flexible, developer-heavy. Impact tracks whatever the agency actually ships.",
-          independence: "Multi-model, but AWS gravity is real. Exit means rewriting glue.",
+          independence: "Multi-model choice is the point; AWS gravity is still real. Exit means rewriting glue.",
         },
-        pos: { readiness: [80, 72], impact: [56, 60], independence: [54, 76] } },
+        pos: { readiness: [80, 74], impact: [56, 62], independence: [56, 76] } },
       { name: "ServiceNow Gov", category: "Workflow/ITSM",
         notes: {
           readiness: "Long federal presence; OneGov GSA commercial terms. State/local via existing Now Platform customers and partners.",
@@ -360,25 +381,25 @@
         pos: { readiness: [80, 76], impact: [62, 76], independence: [28, 82] } },
       { name: "Salesforce GovCloud", category: "CRM/Platform",
         notes: {
-          readiness: "GovCloud plus Missionforce positioning. Strongest where CRM is already Salesforce.",
-          impact: "Citizen case management can move the needle; implementations are not light.",
-          independence: "CRM ecosystem lock-in. Long government history.",
+          readiness: "GovCloud plus Missionforce. Agentforce (Agentforce 360 / Agentforce Public Sector) is the AI-agent layer: Salesforce announced IL5 authorization on Missionforce National Security (5 Aug 2026) — that is a national-security path, not a SLED FedRAMP claim. Strongest where CRM is already Salesforce.",
+          impact: "Citizen case management plus agents. Implementations are not light; Agentforce value is workflow, not a chat widget.",
+          independence: "CRM + agent ecosystem lock-in. Long government history.",
         },
-        pos: { readiness: [76, 72], impact: [66, 72], independence: [26, 78] } },
+        pos: { readiness: [78, 76], impact: [68, 76], independence: [24, 80] } },
       { name: "Tyler Technologies", category: "Gov ERP",
         notes: {
-          readiness: "Pure-play SLED vendor. Public materials cite ~44K installations / 13K locations. AI is sold as governed public-sector features — no FedRAMP claim found on Tyler’s AI page.",
-          impact: "ERP-class: transforms finance/permitting/public safety modules you already run. Multi-year.",
+          readiness: "Pure-play SLED vendor. Public materials cite ~44K installations / 13K locations. 2026 MyGov acquisition extends permitting/community-development into smaller agencies. AI is sold as governed public-sector features — no FedRAMP claim found on Tyler’s AI page.",
+          impact: "ERP-class: transforms finance/permitting/public safety modules you already run. MyGov is a faster add for small jurisdictions; core Tyler remains multi-year.",
           independence: "Deepest local-gov install base. Proprietary suite; switching costs are the story.",
         },
-        pos: { readiness: [92, 58], impact: [82, 80], independence: [18, 90] } },
+        pos: { readiness: [92, 60], impact: [82, 80], independence: [18, 90] } },
       { name: "Oracle Cloud Gov", category: "ERP/Cloud",
         notes: {
-          readiness: "Sovereign / government cloud with FedRAMP and IL5 paths on Oracle’s public cloud pages. Every-state footprint on the ERP side.",
-          impact: "Cloud migration plus process redesign. High ceiling, high pain.",
+          readiness: "Sovereign / government cloud with FedRAMP and IL5 paths on Oracle’s public cloud pages. Fusion Cloud public-sector AI agents are marketed on that stack — confirm the agent SKU is inside the authorized boundary before treating it as FedRAMP.",
+          impact: "Cloud migration plus process redesign. Agents sit on top of Fusion data; the heavy lift is still the ERP.",
           independence: "Oracle ecosystem. Hard to leave once finance is on it.",
         },
-        pos: { readiness: [76, 72], impact: [88, 78], independence: [28, 84] } },
+        pos: { readiness: [76, 74], impact: [88, 80], independence: [28, 84] } },
       { name: "SAP (Joule AI)", category: "ERP/AI",
         notes: {
           readiness: "Joule sits on S/4HANA Cloud. Strong enterprise; SLED-specific sales motion still thinner than Tyler/CGI.",
@@ -388,11 +409,11 @@
         pos: { readiness: [64, 62], impact: [86, 72], independence: [30, 80] } },
       { name: "Workday AI", category: "HCM/Finance",
         notes: {
-          readiness: "Common in large state HCM. AI features ride the existing Workday tenant — do not treat that as a FedRAMP shortcut without checking the SKU.",
+          readiness: "Workday Government / large-state HCM is the usual SLED path. AI features ride the existing tenant — do not treat that as a FedRAMP shortcut without checking the SKU. Workday also ships a Copilot agent for HR/finance in commercial M365; confirm government-cloud availability before buying that pairing.",
           impact: "Workforce planning and HR ops. Real only with clean HCM data.",
           independence: "Moderate lock-in. Strong in large-government HCM.",
         },
-        pos: { readiness: [72, 66], impact: [76, 70], independence: [34, 72] } },
+        pos: { readiness: [74, 66], impact: [76, 70], independence: [34, 72] } },
       { name: "CGI Advantage", category: "Gov ERP",
         notes: {
           readiness: "Federal/state ERP with a long public-sector bench. AI is integration, not a separate SLED copilot brand.",
@@ -423,18 +444,18 @@
         pos: { readiness: [84, 66], impact: [70, 70], independence: [32, 74] } },
       { name: "Esri", category: "GIS/Analytics",
         notes: {
-          readiness: "Default SLED GIS. FedRAMP-authorized ArcGIS Online / enterprise cloud offerings are on Esri’s public compliance pages. AI/ML sits on that stack.",
-          impact: "Transformative when spatial is the work. Deep integration tax.",
+          readiness: "Default SLED GIS. FedRAMP-authorized ArcGIS Online / enterprise cloud offerings are on Esri’s public compliance pages. Esri markets AI assistants and AI/ML on that stack — treat assistants as features of the authorized GIS, not a separate FedRAMP product unless Esri lists one.",
+          impact: "Transformative when spatial is the work. Assistants help analysts; the platform is still GIS.",
           independence: "Deepest GIS lock-in in government. Plan the exit before you extend it.",
         },
-        pos: { readiness: [90, 78], impact: [80, 82], independence: [20, 92] } },
+        pos: { readiness: [90, 80], impact: [80, 82], independence: [20, 92] } },
       { name: "Granicus GXA", category: "Citizen Engagement",
         notes: {
-          readiness: "Purpose-built gov civic experience. Long GovTech 100 run; thousands of SLED sites.",
-          impact: "Direct resident channels if you already run Granicus CMS/meetings.",
+          readiness: "Purpose-built gov civic experience and AI digital agents (GXA). Long GovTech 100 run; thousands of SLED sites.",
+          impact: "Direct resident channels if you already run Granicus CMS/meetings. Agents help 311/content; they do not replace the civic suite.",
           independence: "Gov-specific platform. Established, not easy to unwind.",
         },
-        pos: { readiness: [86, 46], impact: [30, 60], independence: [38, 76] } },
+        pos: { readiness: [86, 48], impact: [30, 62], independence: [38, 76] } },
       { name: "Citibot", category: "Citizen Engagement",
         notes: {
           readiness: "Gov-only chatbot, SMS/web, Carahsoft distribution. Easy cooperative buy.",
@@ -479,11 +500,11 @@
         pos: { readiness: [52, 52], impact: [50, 54], independence: [58, 50] } },
       { name: "Darwin AI", category: "Gov-native AI",
         notes: {
-          readiness: "AI governance/monitoring. GovTech 100 new 2026. Apr 2026 Carahsoft: NASPO, TIPS, OMNIA vehicles in vendor announcement.",
+          readiness: "AI governance/monitoring. GovTech 100 new 2026. Apr 2026 Carahsoft announcement adds NASPO, TIPS, and OMNIA vehicles — Q1 readiness raised this edition. Still not a FedRAMP claim.",
           impact: "Oversight layer. Value is policy and inventory, not resident services.",
           independence: "Positioned as model-agnostic. Still early in SLED.",
         },
-        pos: { readiness: [60, 42], impact: [32, 50], independence: [70, 36] } },
+        pos: { readiness: [74, 44], impact: [32, 50], independence: [70, 38] } },
       { name: "Polimorphic", category: "Gov-native AI",
         notes: {
           readiness: "Front desk, VoiceAI, CRM. Vendor cites 200+ departments / 36M residents.",
@@ -561,13 +582,48 @@
           independence: "Banner/Colleague/Ellucian platform lock-in is the higher-ed equivalent of Tyler in cities.",
         },
         pos: { readiness: [86, 72], impact: [82, 80], independence: [20, 88] } },
-      { name: "Caliber", category: "Avero method", kind: "method", added: true,
+      { name: "UiPath Automation Cloud Public Sector", category: "RPA/Automation", added: true,
         notes: {
-          readiness: "Not a SaaS license. Avero’s engagement operating system for buyer-side ERP/advisory work. Public site: StateRAMP-certified Azure Government, 1,400+ government requirements, 25 modules. Agencies get Caliber only by engaging Avero — there is no SKU on a cooperative contract.",
-          impact: "Changes the quality of discovery, scoring, and implementation health. It does not replace an ERP, copilot, or 311 bot. Humans still decide; Caliber drafts and traces.",
-          independence: "Work product from an engagement belongs to the agency. No product lock-in because it is not sold. Beta: Avero says it is not shrink-wrapped software.",
+          readiness: "FedRAMP Certified Moderate (Class C) as of 20 Mar 2024 (FR2132958724). UiPath docs: public-sector SaaS with FIPS 140-2, U.S.-person ops. April 2026 public-sector release notes add GenAI Activities via Integration Service. Some Insights features remain outside the authorization until review completes.",
+          impact: "Back-office automation at scale. Impact is process redesign, not a chatbot. GenAI activities sit on existing bots.",
+          independence: "Platform lock-in once bots and orchestrations live here. Mature RPA market with alternatives.",
         },
-        pos: { readiness: [30, 74], impact: [42, 68], independence: [90, 38] } },
+        pos: { readiness: [80, 64], impact: [60, 64], independence: [40, 72] } },
+      { name: "Appian Government Cloud", category: "Low-code", added: true,
+        notes: {
+          readiness: "Appian Government Cloud — High: FedRAMP Certified Class D (High) as of 3 Apr 2025 (FR2318051429). Appian also states a 3-year DoD IL5 PA. AI skills inherit the GovCloud boundary; model pick is constrained on GovCloud inference profiles.",
+          impact: "Low-code process + AI on casework. High ceiling if you build on Appian; not a point copilot.",
+          independence: "Appian platform lock-in. Stronger federal than small-city SLED.",
+        },
+        pos: { readiness: [78, 76], impact: [74, 74], independence: [30, 70] } },
+      { name: "Zoom AI Companion", category: "Collaboration", added: true,
+        notes: {
+          readiness: "Verified gov path: Zoom announced FedRAMP JAB Moderate authorization for AI Companion on Zoom for Government (16 Sep 2024). Zoom for Government also cites FedRAMP Moderate, DoD IL4, and StateRAMP on the platform. For paid Zoom Gov accounts, including state/local. Commercial AI Companion is a different stack — buy the Gov SKU.",
+          impact: "Meeting summaries, chat draft, whiteboard assist. Easy add where Zoom Gov is already the meeting system. Narrow mission impact.",
+          independence: "Zoom Gov ecosystem. Mature in SLED meetings; AI is an add-on, not a system of record.",
+        },
+        pos: { readiness: [84, 38], impact: [16, 40], independence: [36, 80] } },
+      { name: "Palantir AIP", category: "AI Platform", added: true,
+        notes: {
+          readiness: "Palantir stated Dec 2024 that FedRAMP High for Palantir Federal Cloud Service covers the product suite including AIP. Federal-first. SLED references exist but are thinner than Tyler/Esri — treat as high-capability, procurement-heavy for most cities.",
+          impact: "Ontology + operators on messy operational data. High ceiling, high integration and change-management cost.",
+          independence: "Deep Palantir lock-in (Foundry/AIP/Gotham). Plan the exit before the ontology becomes the city.",
+        },
+        pos: { readiness: [52, 86], impact: [84, 80], independence: [18, 58] } },
+      { name: "CodeComply", category: "Gov Platform", added: true,
+        notes: {
+          readiness: "AI plan review / pre-check for local permitting. Official plan-review layer for CivicPlus; also sits beside Accela/Tyler/OpenGov per vendor materials. TXShare cooperative endorsement. No FedRAMP claim used here.",
+          impact: "Reviewer cycle time on building plans. Narrow by design; does not replace the permitting system of record.",
+          independence: "Layer on CivicPlus or another CD stack. Easier to unwind than swapping Accela/Tyler.",
+        },
+        pos: { readiness: [70, 36], impact: [26, 54], independence: [62, 34] } },
+      { name: "Laserfiche AI", category: "Records/ECM", added: true,
+        notes: {
+          readiness: "Conditional add: deep SLED records/ECM install. Laserfiche AI (including AI Agents, Apr 2026) uses OpenAI models per Laserfiche trust pages. Enterprise Security (6 Aug 2026) is on the GovRAMP Progressing list — not GovRAMP Ready/Authorized as of this edition. Do not treat progressing as authorized.",
+          impact: "Records search, extraction, and governed automation. Incremental unless records are the bottleneck.",
+          independence: "Repository lock-in is the ECM story. AI rides the existing Laserfiche estate.",
+        },
+        pos: { readiness: [62, 42], impact: [40, 48], independence: [28, 72] } },
     ];
 
     const CATEGORY_COLORS = {
@@ -577,7 +633,8 @@
       "Citizen Engagement": "#10B981", "Gov Platform": "#22D3EE",
       "Public Safety AI": "#EF4444", "HHS AI": "#F472B6", "GIS/Analytics": "#A3E635",
       "Gov-native AI": "#A78BFA", "Procurement AI": "#38BDF8", "Higher-ed AI": "#F472B6",
-      "Avero method": "#C4883C",
+      "RPA/Automation": "#EC4899", "Low-code": "#818CF8", "Collaboration": "#2DD4BF",
+      "Records/ECM": "#94A3B8",
     };
 
     const NEW_THIS_EDITION = TOOLS.filter(t => t.added).map(t => t.name);
@@ -639,7 +696,7 @@
     function GovernmentAINavigator() {
       const [lensIdx, setLensIdx] = useState(0);
       const [hovered, setHovered] = useState(null);
-      const [selected, setSelected] = useState("Caliber");
+      const [selected, setSelected] = useState(null);
       const [query, setQuery] = useState("");
       const [catFilter, setCatFilter] = useState("All");
       const [formSubmitted, setFormSubmitted] = useState(false);
@@ -717,17 +774,24 @@
 
           <div className="lede-bar">
             <p className="lede">
-              Three lenses every government leader needs before investing in AI. Independent map of <strong>{PRODUCT_COUNT} products</strong> plus <strong>Caliber</strong> (Avero’s buyer-side engagement method — not a vendor license). Readiness, impact, and lock-in. Buyer-side. No vendor money. {EDITION}.
+              Three lenses every government leader needs before investing in AI. Independent map of <strong>{PRODUCT_COUNT} products</strong> — readiness, impact, and lock-in. Buyer-side. No vendor money. {EDITION}. Caliber is Avero’s scoring rail, not a dot on the scatter.
             </p>
             <a className="report-btn" href="#report-download">Get the {EDITION} report ↓</a>
           </div>
 
+          <aside className="caliber-rail" aria-label="How Avero scores engagements">
+            <div className="kicker-sm">How we score engagements</div>
+            <h2>Caliber — Avero methodology, not a vendor product</h2>
+            <p>
+              Caliber is the buyer-side advisory rail Avero uses to run discovery, requirements, scorecards, and implementation health. <strong style={{ color: "#F8FAFC" }}>Beta. Not sold or licensed.</strong> There is no SKU and no cooperative contract. Agencies get the benefit by engaging Avero; work product belongs to the agency. It is not plotted on the product matrix so it cannot be mistaken for a paid placement.{" "}
+              <a className="gold-link" href="https://averocaliber.averoadvisors.com/" target="_blank" rel="noopener noreferrer">averocaliber.averoadvisors.com →</a>
+            </p>
+          </aside>
+
           <div className="whats-new">
             <span className="whats-new-label">New this edition</span>
             {NEW_THIS_EDITION.map((name) => (
-              <button key={name} className={"chip" + (name === "Caliber" ? " method" : "")} onClick={() => jumpTo(name)}>
-                {name}{name === "Caliber" ? " · method" : ""}
-              </button>
+              <button key={name} className="chip" onClick={() => jumpTo(name)}>{name}</button>
             ))}
           </div>
 
@@ -761,7 +825,7 @@
             <div className="chart-col">
               <div className="panel">
                 <h2>{lens.title}</h2>
-                <p className="axis-note"><strong>X:</strong> {lens.xDesc} · <strong>Y:</strong> {lens.yDesc}. Click a dot to pin it. Diamond = Caliber (not a product you license).</p>
+                <p className="axis-note"><strong>X:</strong> {lens.xDesc} · <strong>Y:</strong> {lens.yDesc}. Click a dot to pin a readout. Caliber is not on this scatter.</p>
                 <QuadrantChart
                   lens={lens}
                   tools={visible}
@@ -773,14 +837,6 @@
                 <p className="axis-note" style={{ margin: "8px 0 0" }}>
                   Showing {visible.length} of {TOTAL_MAPPED}. Positions are Avero’s independent {EDITION} read — verify every compliance claim on the vendor’s current public page before you buy.
                 </p>
-              </div>
-
-              <div className="callout gold" style={{ marginTop: 16 }}>
-                <div style={{ fontSize: 14, fontWeight: 800, color: "#E8B86D", marginBottom: 6 }}>Caliber is on this map on purpose — and it is not a paid placement.</div>
-                <div style={{ fontSize: 14, color: "#94A3B8", lineHeight: 1.55 }}>
-                  Caliber is how Avero runs buyer-side advisory work (discovery → requirements → scorecards → implementation health). It is <strong style={{ color: "#F1F5F9" }}>not sold as software</strong> and does not compete with Tyler, OpenGov, or Copilot. Agencies get the benefit by engaging Avero; work product belongs to the agency.{" "}
-                  <a className="gold-link" href="https://averocaliber.averoadvisors.com/" target="_blank" rel="noopener noreferrer">Read the public Caliber brief →</a>
-                </div>
               </div>
 
               <div className="callout">
@@ -851,7 +907,7 @@
               <div className="kicker">Free download</div>
               <h2>Get the full {EDITION} Government AI Navigator report</h2>
               <p style={{ fontSize: 15, color: "#94A3B8", lineHeight: 1.65, margin: "0 0 24px" }}>
-                Scoring notes, placement rationale, and procurement questions for all {PRODUCT_COUNT} products, plus an honest page on Caliber (Avero method, not a vendor SKU). PDF delivered after the form. {EDITION} edition.
+                Scoring notes, placement rationale, and procurement questions for all {PRODUCT_COUNT} products, plus how Avero uses Caliber as a methodology rail (not a vendor SKU). PDF delivered after the form. {EDITION} edition.
               </p>
               <div
                 className="hs-form-frame"
@@ -878,11 +934,11 @@
           </section>
 
           <footer className="footer">
-            <div>© 2026 Avèro Advisors. Independent analysis. Not affiliated with any vendor listed. Caliber is Avero methodology, not a paid product placement.</div>
+            <div>© 2026 Avèro Advisors. Independent analysis. Not affiliated with any vendor listed. Caliber is Avero methodology — not a product on the map.</div>
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
               <a href="https://avavero.substack.com" target="_blank" rel="noopener noreferrer">Start at Zero on Substack</a>
               <a href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer">The book</a>
-              <span>Data as of {EDITION} · {PRODUCT_COUNT} products + Caliber</span>
+              <span>Data as of {EDITION} · {PRODUCT_COUNT} products</span>
             </div>
           </footer>
         </div>
