@@ -108,6 +108,7 @@
     .lede { font-size: 15px; color: var(--muted); margin: 0; max-width: 720px; line-height: 1.55; }
     .lede strong { color: #F1F5F9; font-weight: 650; }
     .report-btn {
+      display: inline-block;
       font-size: 13px; font-weight: 700; color: var(--gold-soft); text-decoration: none;
       padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(196,136,60,0.45);
       background: rgba(196,136,60,0.12); white-space: nowrap;
@@ -273,6 +274,8 @@
     const EDITION = "September 2026";
     const PRODUCT_COUNT = 43;
     const TOTAL_MAPPED = 43;
+    const REPORT_PDF = "public/Avero_Start-at-Zero_Government-AI-Navigator_Sep2026.pdf";
+    const REPORT_FILENAME = "Avero_Start-at-Zero_Government-AI-Navigator_Sep2026.pdf";
 
     const LENSES = [
       {
@@ -906,8 +909,11 @@
             <div className="download-inner">
               <div className="kicker">Free download</div>
               <h2>Get the full {EDITION} Government AI Navigator report</h2>
-              <p style={{ fontSize: 15, color: "#94A3B8", lineHeight: 1.65, margin: "0 0 24px" }}>
-                Scoring notes, placement rationale, and procurement questions for all {PRODUCT_COUNT} products, plus how Avero uses Caliber as a methodology rail (not a vendor SKU). PDF delivered after the form. {EDITION} edition.
+              <p style={{ fontSize: 15, color: "#94A3B8", lineHeight: 1.65, margin: "0 0 8px" }}>
+                Scoring notes, placement rationale, and procurement questions for all {PRODUCT_COUNT} products, plus how Avero uses Caliber as a methodology rail (not a vendor SKU). {EDITION} edition. Complete the form; the PDF is offered on the thank-you and emailed from HubSpot.
+              </p>
+              <p style={{ fontSize: 13, fontWeight: 700, color: "#E2E8F0", letterSpacing: 0.01, margin: "0 0 24px", wordBreak: "break-all" }}>
+                {REPORT_FILENAME}
               </p>
               <div
                 className="hs-form-frame"
@@ -916,8 +922,12 @@
                 data-portal-id="24211389"
               ></div>
               <div className="thanks" style={{ display: formSubmitted ? "block" : "none" }}>
-                <div style={{ fontSize: 15, fontWeight: 800, color: "#34D399", marginBottom: 6 }}>Thanks — check your inbox for the {EDITION} PDF.</div>
-                <div style={{ fontSize: 14, color: "#94A3B8", lineHeight: 1.6 }}>
+                <div style={{ fontSize: 15, fontWeight: 800, color: "#34D399", marginBottom: 6 }}>Thanks — download the {EDITION} PDF.</div>
+                <div style={{ fontSize: 14, color: "#94A3B8", lineHeight: 1.6, marginBottom: 12 }}>
+                  File: {REPORT_FILENAME}. A copy is also emailed from HubSpot. If that email still names an older edition, use this file.
+                </div>
+                <a className="report-btn" href={REPORT_PDF} download={REPORT_FILENAME}>Download {REPORT_FILENAME}</a>
+                <div style={{ fontSize: 14, color: "#94A3B8", lineHeight: 1.6, marginTop: 14 }}>
                   Keep going with{" "}
                   <a className="gold-link" href="https://avavero.substack.com" target="_blank" rel="noopener noreferrer">Start at Zero on Substack</a>
                   {" "}and the book{" "}
