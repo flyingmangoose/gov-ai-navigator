@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>"Start at Zero" Government AI Navigator™ | Avèro Advisors</title>
-  <meta name="description" content="Independent map of 31 AI tools for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money." />
+  <title>"Start at Zero" Government AI Navigator | Avero Advisors</title>
+  <meta name="description" content="Independent map of 36 AI products plus Caliber, Avero's buyer-side method, for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money." />
   <link rel="canonical" href="https://govai.averoadvisors.com/" />
-  <meta property="og:title" content='"Start at Zero" Government AI Navigator™ | Avèro Advisors' />
-  <meta property="og:description" content="Independent map of 31 AI tools for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money." />
+  <meta property="og:title" content='"Start at Zero" Government AI Navigator | Avero Advisors' />
+  <meta property="og:description" content="Independent map of 36 AI products plus Caliber, Avero's buyer-side method, for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://govai.averoadvisors.com/" />
   <meta property="og:site_name" content="Government AI Navigator" />
@@ -16,433 +16,842 @@
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Government AI Navigator — Start at Zero. Independent map of 31 AI tools for state and local leaders." />
+  <meta property="og:image:alt" content="Government AI Navigator — Start at Zero. Independent map of 36 AI products plus Caliber for state and local leaders." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content='"Start at Zero" Government AI Navigator™ | Avèro Advisors' />
-  <meta name="twitter:description" content="Independent map of 31 AI tools for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money." />
+  <meta name="twitter:title" content='"Start at Zero" Government AI Navigator | Avero Advisors' />
+  <meta name="twitter:description" content="Independent map of 36 AI products plus Caliber, Avero's buyer-side method, for state and local leaders — readiness, impact, and lock-in. Buyer-side. No vendor money." />
   <meta name="twitter:image" content="https://govai.averoadvisors.com/assets/og-image.png" />
-  <meta name="twitter:image:alt" content="Government AI Navigator — Start at Zero. Independent map of 31 AI tools for state and local leaders." />
+  <meta name="twitter:image:alt" content="Government AI Navigator — Start at Zero. Independent map of 36 AI products plus Caliber for state and local leaders." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
+    :root {
+      --navy: #0B1120;
+      --navy-2: #0F172A;
+      --card: #111827;
+      --border: #1E293B;
+      --text: #E5E7EB;
+      --muted: #94A3B8;
+      --faint: #64748B;
+      --gold: #C4883C;
+      --gold-soft: #E8B86D;
+      --cream: #F0EBE3;
+      --cream-2: #E2D9CA;
+      --ink: #1B2A4A;
+      --blue: #3B82F6;
+      --green: #10B981;
+      --amber: #F59E0B;
+      --red: #EF4444;
+    }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     html, body, #root { min-height: 100vh; }
-    body { font-family: 'DM Sans', 'Segoe UI', system-ui, sans-serif; background: #0B1120; }
+    body {
+      font-family: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    button, input { font-family: inherit; }
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0B1120; }
-    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .skip {
+      position: absolute; left: -999px; top: 8px;
+      background: var(--gold); color: var(--ink); padding: 8px 12px; border-radius: 6px; z-index: 20;
+    }
+    .skip:focus { left: 8px; }
+    .shell {
+      background: linear-gradient(135deg, #0B1120 0%, #111827 50%, #0F172A 100%);
+      min-height: 100vh;
+    }
+    .cream-bar {
+      background: linear-gradient(180deg, #F0EBE3 0%, #E2D9CA 100%);
+      padding: 16px 24px;
+    }
+    .header-row {
+      display: flex; align-items: center; gap: 16px;
+      flex-wrap: wrap; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 14px;
+      min-width: 0; flex: 1 1 260px; flex-wrap: wrap;
+    }
+    .brand img { height: 52px; width: auto; flex-shrink: 0; }
+    .brand-rule { width: 1px; height: 44px; background: #1B2A4A; opacity: 0.3; flex-shrink: 0; }
+    .brand h1 {
+      font-size: clamp(16px, 2.4vw, 22px); font-weight: 800; margin: 0;
+      color: var(--ink); letter-spacing: 0.3px; min-width: 0;
+      overflow-wrap: break-word; line-height: 1.25;
+    }
+    .edition-pill {
+      display: inline-block; margin-top: 4px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: #7A5A2E; background: rgba(196,136,60,0.18);
+      padding: 3px 8px; border-radius: 999px;
+    }
+    .book-cta {
+      display: flex; align-items: center; gap: 10px;
+      padding: 6px 14px 6px 8px; border-radius: 8px;
+      background: rgba(27,42,74,0.08); border: 1px solid rgba(27,42,74,0.18);
+      text-decoration: none; flex-shrink: 0;
+    }
+    .book-cta img { height: 44px; width: auto; border-radius: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+    .lede-bar {
+      padding: 16px 24px 20px; background: var(--navy);
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 14px; border-bottom: 1px solid var(--border);
+    }
+    .lede { font-size: 15px; color: var(--muted); margin: 0; max-width: 720px; line-height: 1.55; }
+    .lede strong { color: #F1F5F9; font-weight: 650; }
+    .report-btn {
+      font-size: 13px; font-weight: 700; color: var(--gold-soft); text-decoration: none;
+      padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(196,136,60,0.45);
+      background: rgba(196,136,60,0.12); white-space: nowrap;
+    }
+    .report-btn:hover { background: rgba(196,136,60,0.2); }
+    .whats-new {
+      padding: 12px 24px; border-bottom: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+      background: rgba(196,136,60,0.04);
+    }
+    .whats-new-label {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--gold-soft); margin-right: 4px;
+    }
+    .chip {
+      font-size: 12px; font-weight: 600; color: #E2E8F0;
+      background: #1E293B; border: 1px solid #334155;
+      border-radius: 999px; padding: 4px 10px; cursor: pointer;
+    }
+    .chip.active, .chip:hover { border-color: var(--gold); color: var(--gold-soft); }
+    .chip.method { border-color: rgba(196,136,60,0.55); color: var(--gold-soft); }
+    .tabs {
+      display: flex; gap: 8px; padding: 16px 24px 8px; overflow-x: auto;
+    }
+    .tab {
+      padding: 12px 18px; border-radius: 12px; cursor: pointer;
+      border: 2px solid #2D3A50; background: rgba(30,41,59,0.5);
+      color: var(--muted); font-size: 14px; font-weight: 700;
+      white-space: nowrap; transition: all 0.15s; text-align: left;
+    }
+    .tab.active {
+      border-color: var(--gold); background: rgba(196,136,60,0.15);
+      color: var(--gold-soft); box-shadow: 0 2px 12px rgba(196,136,60,0.2);
+    }
+    .tab small { display: block; font-size: 11px; font-weight: 500; color: var(--faint); margin-top: 2px; }
+    .tab.active small { color: #D6B483; }
+    .toolbar {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      padding: 8px 24px 16px;
+    }
+    .search {
+      flex: 1 1 240px; min-width: 200px;
+      background: #0F172A; border: 1px solid var(--border); color: var(--text);
+      border-radius: 10px; padding: 11px 14px; font-size: 14px;
+    }
+    .search:focus { outline: 2px solid rgba(196,136,60,0.55); border-color: var(--gold); }
+    .filter-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cat-chip {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.02em;
+      padding: 6px 10px; border-radius: 8px; cursor: pointer;
+      background: transparent; border: 1px solid #334155; color: var(--muted);
+    }
+    .cat-chip.on { color: #0B1120; border-color: transparent; }
+    .layout {
+      padding: 0 24px 32px; display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start;
+    }
+    .chart-col { flex: 1 1 540px; min-width: 0; }
+    .panel {
+      background: var(--navy-2); border-radius: 12px; border: 1px solid var(--border); padding: 18px;
+    }
+    .panel h2 { font-size: 18px; font-weight: 800; margin: 0 0 4px; color: #F1F5F9; }
+    .axis-note { font-size: 13px; color: var(--faint); margin: 0 0 12px; line-height: 1.45; }
+    .chart-wrap { width: 100%; overflow: visible; }
+    .chart-wrap svg { width: 100%; height: auto; display: block; }
+    .side { flex: 0 1 360px; min-width: min(100%, 300px); display: flex; flex-direction: column; gap: 12px; }
+    .detail {
+      padding: 16px; border-radius: 12px;
+      background: var(--navy-2); border: 1px solid var(--border);
+    }
+    .detail.method {
+      border-color: rgba(196,136,60,0.45);
+      background: linear-gradient(180deg, rgba(196,136,60,0.12), #0F172A);
+    }
+    .badge {
+      display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 3px 7px; border-radius: 4px; margin-right: 6px;
+    }
+    .badge.new { background: rgba(59,130,246,0.18); color: #93C5FD; }
+    .badge.method { background: rgba(196,136,60,0.2); color: var(--gold-soft); }
+    .guide-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px; }
+    .guide-dot { width: 8px; height: 8px; border-radius: 2px; margin-top: 5px; flex-shrink: 0; }
+    .dir { max-height: 620px; overflow-y: auto; }
+    .dir h3 {
+      font-size: 12px; font-weight: 800; margin: 0 0 12px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .cat-label {
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 0 8px; margin: 10px 0 4px;
+    }
+    .tool-row {
+      display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 8px;
+      width: 100%; text-align: left; background: transparent; border: 1px solid transparent;
+      cursor: pointer; color: inherit;
+    }
+    .tool-row:hover, .tool-row.on { background: rgba(59,130,246,0.08); border-color: #1E293B; }
+    .tool-row.method-row.on, .tool-row.method-row:hover { background: rgba(196,136,60,0.1); }
+    .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .dot.diamond { transform: rotate(45deg); border-radius: 2px; }
+    .tool-name { font-size: 13px; font-weight: 650; color: #E2E8F0; }
+    .tool-cat { font-size: 10px; color: var(--faint); padding: 2px 6px; background: #1E293B; border-radius: 4px; margin-left: auto; }
+    .callout {
+      margin-top: 16px; padding: 16px 18px; border-radius: 10px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.08));
+      border: 1px solid rgba(59,130,246,0.2);
+    }
+    .callout.gold {
+      background: linear-gradient(135deg, rgba(196,136,60,0.12), rgba(59,130,246,0.06));
+      border-color: rgba(196,136,60,0.35);
+    }
+    .download {
+      padding: 48px 24px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.06));
+      border-top: 1px solid var(--border);
+    }
+    .download-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .kicker { font-size: 13px; font-weight: 800; letter-spacing: 0.14em; color: var(--blue); text-transform: uppercase; margin-bottom: 8px; }
+    .download h2 {
+      font-size: clamp(20px, 3vw, 26px); font-weight: 800; margin: 0 0 10px;
+      color: #F1F5F9;
+    }
+    .thanks {
+      margin: 20px 0 0; padding: 16px 18px; border-radius: 10px;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.35); text-align: left;
+    }
+    .footer {
+      padding: 18px 24px; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px; font-size: 12px; color: #475569;
+    }
+    .footer a { color: var(--muted); font-weight: 600; text-decoration: none; }
+    .footer a:hover { color: var(--gold-soft); }
+    .gold-link { color: var(--gold-soft); font-weight: 600; }
+    .empty { font-size: 13px; color: var(--faint); padding: 12px; }
+    @media (max-width: 720px) {
+      .cream-bar, .lede-bar, .whats-new, .tabs, .toolbar, .layout, .download, .footer { padding-left: 16px; padding-right: 16px; }
+      .tab { font-size: 13px; padding: 10px 12px; }
+      .dir { max-height: none; }
+      .brand-rule { display: none; }
+    }
   </style>
   <script src="https://js.hsforms.net/forms/embed/24211389.js" defer></script>
-  </head>
+</head>
 <body>
+  <a class="skip" href="#matrix">Skip to matrix</a>
   <div id="root"></div>
   <script type="text/babel">
-    const { useState, useEffect } = React;
-    const COLORS = {
-      bg: "#0B1120", card: "#111827", cardHover: "#1a2236", accent: "#3B82F6",
-      accentGlow: "rgba(59, 130, 246, 0.15)", green: "#10B981", amber: "#F59E0B",
-      red: "#EF4444", purple: "#8B5CF6", text: "#E5E7EB", muted: "#9CA3AF",
-      border: "#1E293B", q1: "#10B981", q2: "#3B82F6", q3: "#F59E0B", q4: "#EF4444",
-    };
-    const quadrants = [
+    const { useState, useEffect, useMemo } = React;
+    const EDITION = "September 2026";
+    const PRODUCT_COUNT = 36;
+    const TOTAL_MAPPED = 37;
+
+    const LENSES = [
       {
         id: "readiness",
-        title: "Quadrant 1: Readiness × Capability",
-        subtitle: '"Can I buy it and what does it do?"',
-        xLabel: "Government Readiness →",
-        yLabel: "↑ Capability Depth",
-        xDesc: "GovRAMP/FedRAMP status, procurement vehicles, compliance, gov references",
-        yDesc: "Narrow/single-use → Broad transformative platform",
+        title: "Readiness × Capability",
+        question: "Can I buy it, and what does it do?",
+        xLabel: "Government readiness →",
+        yLabel: "↑ Capability depth",
+        xDesc: "StateRAMP/FedRAMP where publicly documented, cooperative vehicles, SLED references",
+        yDesc: "Narrow point solution → broad platform",
         labels: {
-          tl: { name: "High Potential, High Risk", desc: "Powerful but procurement headaches" },
-          tr: { name: "Government-Ready Leaders", desc: "Strong capability + easy to procure" },
-          bl: { name: "Emerging Bets", desc: "Early stage, unproven in gov" },
-          br: { name: "Safe but Limited", desc: "Easy to buy but narrow use" },
+          tl: { name: "High potential, high risk", desc: "Powerful, procurement still hard for SLED" },
+          tr: { name: "Government-ready leaders", desc: "Strong capability and a path to buy" },
+          bl: { name: "Emerging bets", desc: "Early, thin SLED track record" },
+          br: { name: "Safe but limited", desc: "Easy to buy, narrow use" },
         },
-        tools: [
-          { name: "Microsoft Copilot", x: 82, y: 85, category: "GenAI/Copilot", note: "FedRAMP High, M365 GCC integration, dominant federal install base" },
-          { name: "Google Gemini", x: 78, y: 80, category: "GenAI/Copilot", note: "First GenAI FedRAMP High (Mar 2025), Workspace integration" },
-          { name: "Anthropic Claude", x: 78, y: 78, category: "GenAI/LLM", note: "FedRAMP High standalone product (Claude for Government), plus Bedrock GovCloud and Vertex paths" },
-          { name: "OpenAI ChatGPT", x: 45, y: 80, category: "GenAI/LLM", note: "FedRAMP High offering tied to Azure Government only; growing gov adoption" },
-          { name: "ServiceNow Gov", x: 80, y: 75, category: "Workflow/ITSM", note: "OneGov GSA deal, 70% discounts, strong fed presence" },
-          { name: "Salesforce GovCloud", x: 76, y: 72, category: "CRM/Platform", note: "Missionforce launch, US Army contract win" },
-          { name: "Tyler Technologies", x: 90, y: 55, category: "Gov ERP", note: "45K+ installations, $2.3B revenue, pure-play gov; acquired MyGov (2026)" },
-          { name: "Oracle Cloud Gov", x: 75, y: 70, category: "ERP/Cloud", note: "Sovereign cloud, IL5 authorized, FedRAMP" },
-          { name: "SAP (Joule AI)", x: 65, y: 58, category: "ERP/AI", note: "S/4HANA Cloud AI, strong enterprise but limited gov-specific" },
-          { name: "Workday AI", x: 72, y: 65, category: "HCM/Finance", note: "Strong in large gov HCM, AI for workforce planning" },
-          { name: "AWS Bedrock", x: 80, y: 70, category: "AI Platform", note: "GovCloud, multi-model access, FedRAMP High" },
-          { name: "Granicus GXA", x: 85, y: 45, category: "Citizen Engagement", note: "Purpose-built gov, AI digital agents, 27+ data scientists" },
-          { name: "Citibot", x: 80, y: 30, category: "Citizen Engagement", note: "Gov-only AI chatbot, SMS/web, Carahsoft distribution" },
-          { name: "Polco AI (Polly)", x: 78, y: 35, category: "Citizen Engagement", note: "Purpose-built local gov, 500+ gov clients, ICMA grounded" },
-          { name: "Accela", x: 75, y: 40, category: "Gov Platform", note: "Permitting/licensing AI, cloud-native, growing" },
-          { name: "OpenGov", x: 73, y: 42, category: "Gov Platform", note: "Budgeting/planning AI; acquired Ignatius (Feb 2026); new CEO Apr 2026" },
-          { name: "CGI Advantage", x: 74, y: 58, category: "Gov ERP", note: "Federal/state ERP, 91K employees, AI integration" },
-        
-          { name: "CentralSquare", x: 82, y: 60, category: "Gov Platform", note: "Public safety + admin, 8K+ agencies; Blueline acquisition adds AI police report writing" },
-          { name: "CivicPlus", x: 76, y: 38, category: "Citizen Engagement", note: "Website/meeting/civic engagement with AI, 4K+ clients" },
-          { name: "PublicInput", x: 70, y: 28, category: "Citizen Engagement", note: "Community engagement AI analytics, 150+ clients" },
-          { name: "Madison AI", x: 52, y: 52, category: "Gov-Native AI", note: "Role-specific AI assistants, Washoe County equity partner" },
-          { name: "Darwin AI", x: 45, y: 40, category: "Gov-Native AI", note: "AI governance/monitoring; Carahsoft deal (Apr 2026) adds NASPO, TIPS, OMNIA vehicles" },
-          { name: "Polimorphic", x: 55, y: 53, category: "Gov-Native AI", note: "AI Front Desk + VoiceAI + CRM, 200+ depts, 36M residents" },
-          { name: "Hayden AI", x: 72, y: 42, category: "Public Safety AI", note: "Vision AI for transit enforcement, bus-mounted camera systems" },
-          { name: "Cardinality.ai", x: 35, y: 40, category: "HHS AI", note: "AI case management for Health & Human Services, AWS Gov Partner" },
-          { name: "Zencity", x: 70, y: 52, category: "Citizen Engagement", note: "AI community trust platform, 400+ gov agencies; acquired Commonplace" },
-          { name: "Mark43", x: 75, y: 58, category: "Public Safety AI", note: "Cloud-native public safety RMS/CAD, 200+ agencies" },
-          { name: "Just Appraised", x: 32, y: 28, category: "Gov-Native AI", note: "AI-assisted property tax assessment for county assessors" },
-          { name: "Forcemetrics", x: 28, y: 32, category: "Public Safety AI", note: "AI precision policing platform, law enforcement analytics" },
-          { name: "Peregrine", x: 35, y: 38, category: "Public Safety AI", note: "Public safety data integration; $190M Sequoia-led raise" },
-          { name: "Esri", x: 88, y: 75, category: "GIS/Analytics", note: "Market-leading GIS with AI/ML, ubiquitous in gov, FedRAMP" },
-        ],
       },
       {
         id: "impact",
-        title: "Quadrant 2: Complexity × Impact",
-        subtitle: '"What will it take and what will I get?"',
-        xLabel: "Implementation Complexity →",
-        yLabel: "↑ Mission Impact",
-        xDesc: "Plug-and-play → Deep integration & change management required",
-        yDesc: "Operational efficiency → Citizen outcome transformation",
+        title: "Complexity × Impact",
+        question: "What will it take, and what will I get?",
+        xLabel: "Implementation complexity →",
+        yLabel: "↑ Mission impact",
+        xDesc: "Plug-and-play → deep integration and change management",
+        yDesc: "Staff efficiency → resident or student outcomes",
         labels: {
-          tl: { name: "Quick Wins", desc: "High impact, fast deployment" },
-          tr: { name: "Strategic Transformers", desc: "High impact but major investment" },
-          bl: { name: "Easy Adds", desc: "Simple to deploy, incremental value" },
-          br: { name: "Heavy Lifts", desc: "Complex to implement, limited payoff" },
+          tl: { name: "Quick wins", desc: "High impact, faster to stand up" },
+          tr: { name: "Strategic transformers", desc: "High impact, major investment" },
+          bl: { name: "Easy adds", desc: "Simple deploy, incremental value" },
+          br: { name: "Heavy lifts", desc: "Hard to implement, limited payoff" },
         },
-        tools: [
-          { name: "Microsoft Copilot", x: 35, y: 70, category: "GenAI/Copilot", note: "Integrates into existing M365, moderate change mgmt" },
-          { name: "Google Gemini", x: 38, y: 65, category: "GenAI/Copilot", note: "Workspace integration, training required" },
-          { name: "Anthropic Claude", x: 28, y: 42, category: "GenAI/LLM", note: "Standalone gov product or API-first, relatively easy integration" },
-          { name: "OpenAI ChatGPT", x: 25, y: 38, category: "GenAI/LLM", note: "Consumer-friendly, fast to deploy" },
-          { name: "ServiceNow Gov", x: 60, y: 75, category: "Workflow/ITSM", note: "Significant workflow redesign, high operational impact" },
-          { name: "Salesforce GovCloud", x: 65, y: 72, category: "CRM/Platform", note: "CRM transformation, citizen case mgmt impact" },
-          { name: "Tyler Technologies", x: 80, y: 80, category: "Gov ERP", note: "Full ERP implementation, transforms operations" },
-          { name: "Oracle Cloud Gov", x: 88, y: 78, category: "ERP/Cloud", note: "Complex cloud migration, broad operational impact" },
-          { name: "SAP (Joule AI)", x: 85, y: 72, category: "ERP/AI", note: "Massive implementation effort, deep process impact" },
-          { name: "Workday AI", x: 75, y: 70, category: "HCM/Finance", note: "Major HCM transformation, workforce impact" },
-          { name: "AWS Bedrock", x: 55, y: 60, category: "AI Platform", note: "Requires developer resources, flexible impact" },
-          { name: "Granicus GXA", x: 30, y: 60, category: "Citizen Engagement", note: "CMS integration, direct citizen impact" },
-          { name: "Citibot", x: 15, y: 40, category: "Citizen Engagement", note: "Very easy SMS setup, immediate 311 impact" },
-          { name: "Polco AI (Polly)", x: 20, y: 45, category: "Citizen Engagement", note: "Quick deployment, community engagement impact" },
-          { name: "Accela", x: 55, y: 50, category: "Gov Platform", note: "Permitting workflow setup, citizen-facing impact" },
-          { name: "OpenGov", x: 45, y: 48, category: "Gov Platform", note: "Budget integration, transparency impact" },
-          { name: "CGI Advantage", x: 82, y: 72, category: "Gov ERP", note: "Full ERP deployment, operational transformation" },
-        
-          { name: "CentralSquare", x: 70, y: 68, category: "Gov Platform", note: "Public safety overhaul, high operational impact" },
-          { name: "CivicPlus", x: 25, y: 42, category: "Citizen Engagement", note: "Quick website AI integration, community impact" },
-          { name: "PublicInput", x: 18, y: 38, category: "Citizen Engagement", note: "Easy deployment, direct citizen engagement impact" },
-          { name: "Madison AI", x: 52, y: 55, category: "Gov-Native AI", note: "Role-specific assistants, moderate setup, high staff impact" },
-          { name: "Darwin AI", x: 30, y: 48, category: "Gov-Native AI", note: "AI oversight layer, moderate integration, governance impact" },
-          { name: "Polimorphic", x: 53, y: 56, category: "Gov-Native AI", note: "Front desk automation, moderate setup, resident impact" },
-          { name: "Hayden AI", x: 40, y: 62, category: "Public Safety AI", note: "Hardware+AI deployment, measurable transit safety impact" },
-          { name: "Cardinality.ai", x: 55, y: 65, category: "HHS AI", note: "Moderate integration, transforms HHS case outcomes" },
-          { name: "Zencity", x: 20, y: 55, category: "Citizen Engagement", note: "Quick deploy, AI-powered community sentiment analysis" },
-          { name: "Mark43", x: 72, y: 75, category: "Public Safety AI", note: "Full RMS replacement, major public safety transformation" },
-          { name: "Just Appraised", x: 30, y: 45, category: "Gov-Native AI", note: "Targeted AI workflow, streamlines assessor operations" },
-          { name: "Forcemetrics", x: 35, y: 52, category: "Public Safety AI", note: "Analytics overlay, improves policing precision" },
-          { name: "Peregrine", x: 45, y: 60, category: "Public Safety AI", note: "Data integration layer, cross-system safety intelligence" },
-          { name: "Esri", x: 80, y: 82, category: "GIS/Analytics", note: "Deep integration, transformative spatial analysis for all depts" },
-        ],
       },
       {
         id: "independence",
-        title: "Quadrant 3: Independence × Maturity",
-        subtitle: '"Am I getting locked in?"',
-        xLabel: "Vendor Independence →",
-        yLabel: "↑ Gov Market Maturity",
-        xDesc: "Proprietary/locked-in → Open/interoperable ecosystem",
-        yDesc: "Emerging/unproven → Established/deployed at scale in gov",
+        title: "Independence × Maturity",
+        question: "Am I getting locked in?",
+        xLabel: "Vendor independence →",
+        yLabel: "↑ Gov market maturity",
+        xDesc: "Proprietary / hard to leave → portable data and alternatives",
+        yDesc: "Emerging → established at SLED scale",
         labels: {
-          tl: { name: "Established but Locked", desc: "Proven but hard to leave" },
-          tr: { name: "Open & Proven", desc: "Mature with exit flexibility" },
-          bl: { name: "Risky Bets", desc: "New and proprietary" },
-          br: { name: "Flexible but Unproven", desc: "Open but limited gov track record" },
+          tl: { name: "Established but locked", desc: "Proven, expensive to unwind" },
+          tr: { name: "Open and proven", desc: "Mature with a realistic exit" },
+          bl: { name: "Risky bets", desc: "New and proprietary" },
+          br: { name: "Flexible but unproven", desc: "Open, thin SLED history" },
         },
-        tools: [
-          { name: "Microsoft Copilot", x: 25, y: 85, category: "GenAI/Copilot", note: "Deep M365 lock-in, extremely mature in gov" },
-          { name: "Google Gemini", x: 35, y: 70, category: "GenAI/Copilot", note: "Workspace dependency, growing gov presence" },
-          { name: "Anthropic Claude", x: 72, y: 62, category: "GenAI/LLM", note: "Multicloud, standalone FedRAMP High product, deployed across all three federal branches" },
-          { name: "OpenAI ChatGPT", x: 42, y: 55, category: "GenAI/LLM", note: "Azure dependency, strong adoption momentum" },
-          { name: "ServiceNow Gov", x: 30, y: 80, category: "Workflow/ITSM", note: "Platform lock-in, very established in fed" },
-          { name: "Salesforce GovCloud", x: 28, y: 78, category: "CRM/Platform", note: "CRM ecosystem lock-in, long gov history" },
-          { name: "Tyler Technologies", x: 20, y: 88, category: "Gov ERP", note: "Proprietary/closed ecosystem, deepest install base in gov" },
-          { name: "Oracle Cloud Gov", x: 30, y: 82, category: "ERP/Cloud", note: "Oracle ecosystem, deep gov entrenchment" },
-          { name: "SAP (Joule AI)", x: 32, y: 80, category: "ERP/AI", note: "SAP ecosystem lock-in, massive gov installed base" },
-          { name: "Workday AI", x: 35, y: 72, category: "HCM/Finance", note: "Moderate lock-in, strong in large gov HCM" },
-          { name: "AWS Bedrock", x: 55, y: 75, category: "AI Platform", note: "Multi-model but AWS infrastructure dependency" },
-          { name: "Granicus GXA", x: 40, y: 75, category: "Citizen Engagement", note: "Gov-specific platform, established but niche" },
-          { name: "Citibot", x: 60, y: 40, category: "Citizen Engagement", note: "Lightweight integration, newer market entrant" },
-          { name: "Polco AI (Polly)", x: 58, y: 48, category: "Citizen Engagement", note: "Interoperable, 500+ gov clients" },
-          { name: "Accela", x: 55, y: 55, category: "Gov Platform", note: "API-first approach, mid-market presence" },
-          { name: "OpenGov", x: 58, y: 52, category: "Gov Platform", note: "Cloud-native, interoperable, growing adoption" },
-          { name: "CGI Advantage", x: 25, y: 75, category: "Gov ERP", note: "Proprietary, long-standing fed/state presence" },
-        
-          { name: "CentralSquare", x: 35, y: 70, category: "Gov Platform", note: "Proprietary platform, high gov-specific lock-in" },
-          { name: "CivicPlus", x: 50, y: 50, category: "Citizen Engagement", note: "Mid-range lock-in, cloud-native platform" },
-          { name: "PublicInput", x: 62, y: 35, category: "Citizen Engagement", note: "Lightweight, interoperable, newer entrant" },
-          { name: "Madison AI", x: 55, y: 52, category: "Gov-Native AI", note: "Newer, low lock-in, emerging gov AI player" },
-          { name: "Darwin AI", x: 68, y: 32, category: "Gov-Native AI", note: "AI-agnostic oversight, low lock-in; Carahsoft vehicles arriving" },
-          { name: "Polimorphic", x: 56, y: 53, category: "Gov-Native AI", note: "Gov OS approach, moderate lock-in, growing fast" },
-          { name: "Hayden AI", x: 50, y: 40, category: "Public Safety AI", note: "Proprietary hardware, growing transit authority adoption" },
-          { name: "Cardinality.ai", x: 55, y: 45, category: "HHS AI", note: "AWS-based, moderate portability, established in HHS" },
-          { name: "Zencity", x: 60, y: 55, category: "Citizen Engagement", note: "SaaS model, data exportable, strong gov footprint" },
-          { name: "Mark43", x: 45, y: 60, category: "Public Safety AI", note: "Cloud-native but specialized, growing agency count" },
-          { name: "Just Appraised", x: 65, y: 25, category: "Gov-Native AI", note: "New to market (2026), lightweight AI workflow" },
-          { name: "Forcemetrics", x: 55, y: 30, category: "Public Safety AI", note: "New to GovTech 100, emerging analytics platform" },
-          { name: "Peregrine", x: 60, y: 35, category: "Public Safety AI", note: "New to GovTech 100, integration-focused approach" },
-          { name: "Esri", x: 22, y: 90, category: "GIS/Analytics", note: "Deep ecosystem lock-in, most mature GIS platform in gov" },
-        ],
       },
     ];
-    const categoryColors = {
+
+    const TOOLS = [
+      { name: "Microsoft Copilot", category: "GenAI/Copilot",
+        notes: {
+          readiness: "M365 Copilot in GCC and GCC High. Microsoft states GCC High Copilot is built to FedRAMP High-oriented controls. Dominant SLED M365 install base.",
+          impact: "Lands inside existing M365; real value still depends on data hygiene and change management.",
+          independence: "Deep M365 lock-in. Extremely mature in government productivity stacks.",
+        },
+        pos: { readiness: [84, 86], impact: [34, 70], independence: [22, 88] } },
+      { name: "Google Gemini", category: "GenAI/Copilot",
+        notes: {
+          readiness: "Gemini for Government is listed FedRAMP Certified on the FedRAMP AI page (early 2026). Workspace path for agencies already on Google.",
+          impact: "Useful where Workspace is the system of work; training and policy work still required.",
+          independence: "Workspace dependency. Growing public-sector presence, still behind Microsoft in most SLED offices.",
+        },
+        pos: { readiness: [80, 80], impact: [38, 66], independence: [34, 72] } },
+      { name: "Anthropic Claude", category: "GenAI/LLM",
+        notes: {
+          readiness: "Claude for Government is Anthropic’s FedRAMP High standalone product. Anthropic states most state/local uses fit Claude Enterprise; C4G is the High path. Also on Bedrock GovCloud and Vertex Assured Workloads.",
+          impact: "API-first or standalone chat. Easier than an ERP; still needs use-case design and records policy.",
+          independence: "Multicloud options reduce single-cloud lock-in versus Azure-only stacks. SLED references still catching up to federal.",
+        },
+        pos: { readiness: [78, 80], impact: [28, 48], independence: [74, 64] } },
+      { name: "OpenAI ChatGPT", category: "GenAI/LLM",
+        notes: {
+          readiness: "ChatGPT Enterprise and API Platform: FedRAMP Certified 20x Moderate as of 9 Jan 2026 (marketplace FR2533155773). No longer Azure-Government-only. Carahsoft is a public-sector reseller. SLED still confirming local vehicles.",
+          impact: "Fast for knowledge work and drafting. Mission systems still sit elsewhere.",
+          independence: "Less Azure-only than the August edition implied. Consumer-grade confusion remains a governance risk.",
+        },
+        pos: { readiness: [70, 80], impact: [24, 42], independence: [52, 62] } },
+      { name: "Perplexity Enterprise for Government", category: "GenAI/LLM", added: true,
+        notes: {
+          readiness: "FedRAMP Certified 20x Class B (Low) as of 1 Feb 2026 (FR2604643715). GSA MAS / OneGov pricing is federal-first. SLED path exists via MAS piggyback in some states; not a SLED-native product.",
+          impact: "Cited research and drafting. Low implementation lift; limited workflow depth.",
+          independence: "Multi-model research layer. Federal-first maturity; SLED references still thin.",
+        },
+        pos: { readiness: [58, 56], impact: [20, 44], independence: [58, 36] } },
+      { name: "AWS Bedrock", category: "AI Platform",
+        notes: {
+          readiness: "GovCloud / FedRAMP High path for several foundation models. Common SLED pattern: build on Bedrock rather than buy a chatbot SKU.",
+          impact: "Flexible, developer-heavy. Impact tracks whatever the agency actually ships.",
+          independence: "Multi-model, but AWS gravity is real. Exit means rewriting glue.",
+        },
+        pos: { readiness: [80, 72], impact: [56, 60], independence: [54, 76] } },
+      { name: "ServiceNow Gov", category: "Workflow/ITSM",
+        notes: {
+          readiness: "Long federal presence; OneGov GSA commercial terms. State/local via existing Now Platform customers and partners.",
+          impact: "High operational impact if you redesign workflow, not if you bolt a chatbot on ITSM.",
+          independence: "Platform lock-in. Very established in large gov IT shops.",
+        },
+        pos: { readiness: [80, 76], impact: [62, 76], independence: [28, 82] } },
+      { name: "Salesforce GovCloud", category: "CRM/Platform",
+        notes: {
+          readiness: "GovCloud plus Missionforce positioning. Strongest where CRM is already Salesforce.",
+          impact: "Citizen case management can move the needle; implementations are not light.",
+          independence: "CRM ecosystem lock-in. Long government history.",
+        },
+        pos: { readiness: [76, 72], impact: [66, 72], independence: [26, 78] } },
+      { name: "Tyler Technologies", category: "Gov ERP",
+        notes: {
+          readiness: "Pure-play SLED vendor. Public materials cite ~44K installations / 13K locations. AI is sold as governed public-sector features — no FedRAMP claim found on Tyler’s AI page.",
+          impact: "ERP-class: transforms finance/permitting/public safety modules you already run. Multi-year.",
+          independence: "Deepest local-gov install base. Proprietary suite; switching costs are the story.",
+        },
+        pos: { readiness: [92, 58], impact: [82, 80], independence: [18, 90] } },
+      { name: "Oracle Cloud Gov", category: "ERP/Cloud",
+        notes: {
+          readiness: "Sovereign / government cloud with FedRAMP and IL5 paths on Oracle’s public cloud pages. Every-state footprint on the ERP side.",
+          impact: "Cloud migration plus process redesign. High ceiling, high pain.",
+          independence: "Oracle ecosystem. Hard to leave once finance is on it.",
+        },
+        pos: { readiness: [76, 72], impact: [88, 78], independence: [28, 84] } },
+      { name: "SAP (Joule AI)", category: "ERP/AI",
+        notes: {
+          readiness: "Joule sits on S/4HANA Cloud. Strong enterprise; SLED-specific sales motion still thinner than Tyler/CGI.",
+          impact: "Massive if you are already SAP. Greenfield SLED SAP+AI is a heavy lift.",
+          independence: "SAP lock-in. Huge installed base where it exists.",
+        },
+        pos: { readiness: [64, 62], impact: [86, 72], independence: [30, 80] } },
+      { name: "Workday AI", category: "HCM/Finance",
+        notes: {
+          readiness: "Common in large state HCM. AI features ride the existing Workday tenant — do not treat that as a FedRAMP shortcut without checking the SKU.",
+          impact: "Workforce planning and HR ops. Real only with clean HCM data.",
+          independence: "Moderate lock-in. Strong in large-government HCM.",
+        },
+        pos: { readiness: [72, 66], impact: [76, 70], independence: [34, 72] } },
+      { name: "CGI Advantage", category: "Gov ERP",
+        notes: {
+          readiness: "Federal/state ERP with a long public-sector bench. AI is integration, not a separate SLED copilot brand.",
+          impact: "Full ERP replacement energy. High operational transformation, long calendar.",
+          independence: "Proprietary. Entrenched where Advantage already runs.",
+        },
+        pos: { readiness: [74, 58], impact: [84, 72], independence: [24, 76] } },
+      { name: "OpenGov", category: "Gov Platform",
+        notes: {
+          readiness: "April 2026: AI-native Public Service Platform, OG Assist, and AI Review for permitting. Ignatius acquisition (Feb 2026). Cloud-native SLED budgeting/ERP path.",
+          impact: "Budget, permitting, and HCM on one data foundation if you buy the platform story. AI Review can speed plan check; change management is still local.",
+          independence: "Cloud-native and more portable than legacy ERP, but the suite is sticky once finance lives there.",
+        },
+        pos: { readiness: [76, 58], impact: [50, 60], independence: [56, 60] } },
+      { name: "Accela", category: "Gov Platform",
+        notes: {
+          readiness: "CivicAI is Accela’s 2026 permitting/licensing/inspections AI layer, positioned as auditable civic workflow AI. Long SLED permitting footprint.",
+          impact: "Citizen-facing cycle time if reviewers trust the assist. Not a citywide platform by itself.",
+          independence: "API-first relative to old on-prem permitting. Still a specialized system of record.",
+        },
+        pos: { readiness: [76, 50], impact: [54, 56], independence: [56, 58] } },
+      { name: "CentralSquare", category: "Gov Platform",
+        notes: {
+          readiness: "8K+ agencies. 20 Aug 2026: Centerline AI expanded to public administration as a standalone assistant grounded in agency documents. Blueline adds AI police-report writing. OMNIA/cloud path for many customers.",
+          impact: "Public safety plus admin. Centerline is an add-on; RMS/CAD replacement is still a heavy lift.",
+          independence: "Proprietary public-safety/admin suite. High switching cost.",
+        },
+        pos: { readiness: [84, 66], impact: [70, 70], independence: [32, 74] } },
+      { name: "Esri", category: "GIS/Analytics",
+        notes: {
+          readiness: "Default SLED GIS. FedRAMP-authorized ArcGIS Online / enterprise cloud offerings are on Esri’s public compliance pages. AI/ML sits on that stack.",
+          impact: "Transformative when spatial is the work. Deep integration tax.",
+          independence: "Deepest GIS lock-in in government. Plan the exit before you extend it.",
+        },
+        pos: { readiness: [90, 78], impact: [80, 82], independence: [20, 92] } },
+      { name: "Granicus GXA", category: "Citizen Engagement",
+        notes: {
+          readiness: "Purpose-built gov civic experience. Long GovTech 100 run; thousands of SLED sites.",
+          impact: "Direct resident channels if you already run Granicus CMS/meetings.",
+          independence: "Gov-specific platform. Established, not easy to unwind.",
+        },
+        pos: { readiness: [86, 46], impact: [30, 60], independence: [38, 76] } },
+      { name: "Citibot", category: "Citizen Engagement",
+        notes: {
+          readiness: "Gov-only chatbot, SMS/web, Carahsoft distribution. Easy cooperative buy.",
+          impact: "311 deflection. Fast to stand up, narrow ceiling.",
+          independence: "Lightweight. Newer than the civic-suite incumbents.",
+        },
+        pos: { readiness: [80, 30], impact: [14, 40], independence: [62, 40] } },
+      { name: "Polco AI (Polly)", category: "Citizen Engagement",
+        notes: {
+          readiness: "Local-gov engagement, ICMA-grounded, 500+ gov clients in public materials.",
+          impact: "Community input, not operations. Quick if survey/engagement is the job.",
+          independence: "Relatively interoperable. Niche but proven in local gov.",
+        },
+        pos: { readiness: [78, 34], impact: [20, 44], independence: [60, 50] } },
+      { name: "CivicPlus", category: "Citizen Engagement",
+        notes: {
+          readiness: "Websites, meetings, civic engagement with AI assist. 4K+ clients.",
+          impact: "Resident-facing content and meetings. Incremental unless you replace the whole civic stack.",
+          independence: "Mid-range lock-in. Cloud suite.",
+        },
+        pos: { readiness: [76, 40], impact: [26, 44], independence: [50, 52] } },
+      { name: "PublicInput", category: "Citizen Engagement",
+        notes: {
+          readiness: "Community engagement analytics. Smaller install than CivicPlus/Granicus.",
+          impact: "Easy add for outreach teams.",
+          independence: "Lightweight, newer.",
+        },
+        pos: { readiness: [70, 28], impact: [16, 38], independence: [64, 34] } },
+      { name: "Zencity", category: "Citizen Engagement",
+        notes: {
+          readiness: "Community trust / sentiment. Commonplace acquisition. Hundreds of agencies in vendor materials.",
+          impact: "Leadership dashboard value; does not run the city.",
+          independence: "SaaS; data export is the question to put in the contract.",
+        },
+        pos: { readiness: [72, 50], impact: [20, 54], independence: [60, 56] } },
+      { name: "Madison AI", category: "Gov-native AI",
+        notes: {
+          readiness: "Role-specific assistants. Washoe County and GovAI Coalition references. Still building cooperative depth.",
+          impact: "Staff copilots. Moderate setup.",
+          independence: "Lower lock-in than ERP. Emerging.",
+        },
+        pos: { readiness: [52, 52], impact: [50, 54], independence: [58, 50] } },
+      { name: "Darwin AI", category: "Gov-native AI",
+        notes: {
+          readiness: "AI governance/monitoring. GovTech 100 new 2026. Apr 2026 Carahsoft: NASPO, TIPS, OMNIA vehicles in vendor announcement.",
+          impact: "Oversight layer. Value is policy and inventory, not resident services.",
+          independence: "Positioned as model-agnostic. Still early in SLED.",
+        },
+        pos: { readiness: [60, 42], impact: [32, 50], independence: [70, 36] } },
+      { name: "Polimorphic", category: "Gov-native AI",
+        notes: {
+          readiness: "Front desk, VoiceAI, CRM. Vendor cites 200+ departments / 36M residents.",
+          impact: "Resident intake automation. Moderate integration.",
+          independence: "Gov-OS ambition = moderate lock-in if it becomes the front door.",
+        },
+        pos: { readiness: [58, 54], impact: [52, 58], independence: [54, 54] } },
+      { name: "Just Appraised", category: "Gov-native AI",
+        notes: {
+          readiness: "AI-assisted property-tax workflows for county assessors. GovTech 100 new 2026. Thin national vehicle story.",
+          impact: "Assessor cycle time. Narrow by design.",
+          independence: "Lightweight workflow. Early.",
+        },
+        pos: { readiness: [34, 28], impact: [30, 46], independence: [66, 26] } },
+      { name: "Hayden AI", category: "Public Safety AI",
+        notes: {
+          readiness: "Vision AI for transit enforcement. Hardware plus software; transit-authority references.",
+          impact: "Measurable bus-lane/safety use cases. Hardware deployment.",
+          independence: "Proprietary cameras. Switching means trucks and mounts, not just a SaaS cancel.",
+        },
+        pos: { readiness: [72, 42], impact: [42, 62], independence: [48, 42] } },
+      { name: "Cardinality.ai", category: "HHS AI",
+        notes: {
+          readiness: "HHS case-management AI. AWS Gov partner messaging. Not a general SLED copilot.",
+          impact: "Case outcomes if data and policy allow. Integration into eligibility systems is the work.",
+          independence: "AWS-based. Moderate portability.",
+        },
+        pos: { readiness: [38, 42], impact: [56, 66], independence: [56, 44] } },
+      { name: "Mark43", category: "Public Safety AI",
+        notes: {
+          readiness: "Cloud RMS/CAD. 200+ agencies in public materials. Competes with CentralSquare/Tyler public safety.",
+          impact: "Full RMS replacement is a transformation, not a copilot.",
+          independence: "Specialized cloud RMS. Growing but sticky.",
+        },
+        pos: { readiness: [74, 58], impact: [74, 76], independence: [44, 62] } },
+      { name: "Forcemetrics", category: "Public Safety AI",
+        notes: {
+          readiness: "Precision-policing analytics. GovTech 100. Fewer national vehicles documented than Axon/Flock.",
+          impact: "Analytics overlay. Impact tracks data quality and policy.",
+          independence: "Emerging. Lower lock-in than RMS.",
+        },
+        pos: { readiness: [30, 32], impact: [36, 52], independence: [56, 30] } },
+      { name: "Peregrine", category: "Public Safety AI",
+        notes: {
+          readiness: "Public-safety data integration. Large 2026 private raise in prior coverage. Still a specialized buy.",
+          impact: "Cross-system intelligence if agencies will share. Integration project, not a license key.",
+          independence: "Integration-focused. Newer GovTech 100 name.",
+        },
+        pos: { readiness: [36, 40], impact: [48, 60], independence: [62, 36] } },
+      { name: "Axon Draft One", category: "Public Safety AI", added: true,
+        notes: {
+          readiness: "Sold into existing Axon Evidence/BWC estates. 2026 local adoptions (e.g. Pittsburg CA, Prescott AZ, Kenosha WI, Alamosa CO). No FedRAMP claim used here. Easiest where Axon is already on the belt.",
+          impact: "Officer time back on report narratives; human review required. Does not replace RMS judgment or policy.",
+          independence: "Axon ecosystem gravity (BWC, Evidence, Records, Taser). Hard to unbundle once reports depend on it.",
+        },
+        pos: { readiness: [82, 44], impact: [28, 64], independence: [20, 80] } },
+      { name: "Flock Safety", category: "Public Safety AI", added: true,
+        notes: {
+          readiness: "ALPR/cameras widely bought by cities via OMNIA/Region 4 ESC cooperative R250203 (public 2026 council packets). Do not treat cooperative buy as FedRAMP. Privacy and data-sharing fights are part of the SLED story (Madison-area non-renewals, 2026).",
+          impact: "Investigative speed where ALPR is lawful and used. Community trust cost can erase the operational gain.",
+          independence: "Network effects and multi-year camera contracts. Several agencies have found early exit expensive.",
+        },
+        pos: { readiness: [86, 40], impact: [26, 58], independence: [16, 84] } },
+      { name: "Civic Marketplace", category: "Procurement AI", added: true,
+        notes: {
+          readiness: "Free for SLED entities. NIGP Business Council member. 24 Aug 2026: MCP connectors into Claude, ChatGPT, and Copilot announced at NIGP Forum.",
+          impact: "Finds cooperative contracts and suppliers faster. Does not run finance or inventory.",
+          independence: "Open connectors by design. Still a young category; do not confuse with a full e-procurement suite.",
+        },
+        pos: { readiness: [74, 36], impact: [16, 48], independence: [72, 40] } },
+      { name: "Ellucian AI", category: "Higher-ed AI", added: true,
+        notes: {
+          readiness: "Ellucian Student launched as an AI-native SIS+HCM+Finance platform for higher ed (2026 product line). Dominant campus SIS vendor; buy is usually an existing Ellucian relationship, not a net-new SLED RFP. FERPA-oriented responsible-AI pages; no FedRAMP claim used here.",
+          impact: "Student-lifecycle transformation if you actually move SIS. That is a multi-year campus program.",
+          independence: "Banner/Colleague/Ellucian platform lock-in is the higher-ed equivalent of Tyler in cities.",
+        },
+        pos: { readiness: [86, 72], impact: [82, 80], independence: [20, 88] } },
+      { name: "Caliber", category: "Avero method", kind: "method", added: true,
+        notes: {
+          readiness: "Not a SaaS license. Avero’s engagement operating system for buyer-side ERP/advisory work. Public site: StateRAMP-certified Azure Government, 1,400+ government requirements, 25 modules. Agencies get Caliber only by engaging Avero — there is no SKU on a cooperative contract.",
+          impact: "Changes the quality of discovery, scoring, and implementation health. It does not replace an ERP, copilot, or 311 bot. Humans still decide; Caliber drafts and traces.",
+          independence: "Work product from an engagement belongs to the agency. No product lock-in because it is not sold. Beta: Avero says it is not shrink-wrapped software.",
+        },
+        pos: { readiness: [30, 74], impact: [42, 68], independence: [90, 38] } },
+    ];
+
+    const CATEGORY_COLORS = {
       "GenAI/Copilot": "#3B82F6", "GenAI/LLM": "#6366F1", "AI Platform": "#8B5CF6",
       "Workflow/ITSM": "#14B8A6", "CRM/Platform": "#06B6D4", "Gov ERP": "#F59E0B",
       "ERP/Cloud": "#F97316", "ERP/AI": "#FB923C", "HCM/Finance": "#FBBF24",
-      "Citizen Engagement": "#10B981", "RPA/Automation": "#EC4899", "Data/Analytics": "#A78BFA",
-      "Cybersecurity AI": "#EF4444", "Gov Platform": "#22D3EE", "Identity/Fraud": "#F472B6",
-      "Enterprise AI": "#818CF8", "Analytics/AI": "#C084FC",
-        "Public Safety AI": "#EF4444", "HHS AI": "#F472B6", "GIS/Analytics": "#A3E635",
+      "Citizen Engagement": "#10B981", "Gov Platform": "#22D3EE",
+      "Public Safety AI": "#EF4444", "HHS AI": "#F472B6", "GIS/Analytics": "#A3E635",
+      "Gov-native AI": "#A78BFA", "Procurement AI": "#38BDF8", "Higher-ed AI": "#F472B6",
+      "Avero method": "#C4883C",
     };
-    const QuadrantChart = ({ quadrant, hoveredTool, setHoveredTool }) => {
-      const { labels, tools, xLabel, yLabel } = quadrant;
-      const pad = 48;
-      const w = 520;
-      const h = 420;
+
+    const NEW_THIS_EDITION = TOOLS.filter(t => t.added).map(t => t.name);
+
+    function QuadrantChart({ lens, tools, hovered, selected, onHover, onSelect }) {
+      const pad = 52;
+      const w = 560;
+      const h = 460;
       const plotW = w - pad * 2;
       const plotH = h - pad * 2;
+      const toXY = (t) => {
+        const [x, y] = t.pos[lens.id];
+        return [pad + (x / 100) * plotW, pad + plotH - (y / 100) * plotH];
+      };
       return (
-        <svg viewBox={`0 0 ${w} ${h}`} style={{ width: "100%", height: "auto", overflow: "visible" }}>
-          <rect x={pad} y={pad} width={plotW / 2} height={plotH / 2} fill="rgba(59,130,246,0.06)" rx="4" />
-          <rect x={pad + plotW / 2} y={pad} width={plotW / 2} height={plotH / 2} fill="rgba(16,185,129,0.06)" rx="4" />
-          <rect x={pad} y={pad + plotH / 2} width={plotW / 2} height={plotH / 2} fill="rgba(239,68,68,0.04)" rx="4" />
-          <rect x={pad + plotW / 2} y={pad + plotH / 2} width={plotW / 2} height={plotH / 2} fill="rgba(245,158,11,0.05)" rx="4" />
-          <text x={pad + plotW * 0.25} y={pad + 18} textAnchor="middle" fill="#60A5FA" fontSize="9" fontWeight="600" opacity="0.7">{labels.tl.name}</text>
-          <text x={pad + plotW * 0.75} y={pad + 18} textAnchor="middle" fill="#34D399" fontSize="9" fontWeight="600" opacity="0.7">{labels.tr.name}</text>
-          <text x={pad + plotW * 0.25} y={pad + plotH - 8} textAnchor="middle" fill="#F87171" fontSize="9" fontWeight="600" opacity="0.7">{labels.bl.name}</text>
-          <text x={pad + plotW * 0.75} y={pad + plotH - 8} textAnchor="middle" fill="#FBBF24" fontSize="9" fontWeight="600" opacity="0.7">{labels.br.name}</text>
+        <svg viewBox={`0 0 ${w} ${h}`} className="chart-wrap" role="img" aria-label={lens.title}>
+          <rect x={pad} y={pad} width={plotW / 2} height={plotH / 2} fill="rgba(59,130,246,0.07)" rx="6" />
+          <rect x={pad + plotW / 2} y={pad} width={plotW / 2} height={plotH / 2} fill="rgba(16,185,129,0.07)" rx="6" />
+          <rect x={pad} y={pad + plotH / 2} width={plotW / 2} height={plotH / 2} fill="rgba(239,68,68,0.05)" rx="6" />
+          <rect x={pad + plotW / 2} y={pad + plotH / 2} width={plotW / 2} height={plotH / 2} fill="rgba(245,158,11,0.06)" rx="6" />
+          <text x={pad + plotW * 0.25} y={pad + 20} textAnchor="middle" fill="#60A5FA" fontSize="11" fontWeight="700">{lens.labels.tl.name}</text>
+          <text x={pad + plotW * 0.75} y={pad + 20} textAnchor="middle" fill="#34D399" fontSize="11" fontWeight="700">{lens.labels.tr.name}</text>
+          <text x={pad + plotW * 0.25} y={pad + plotH - 10} textAnchor="middle" fill="#F87171" fontSize="11" fontWeight="700">{lens.labels.bl.name}</text>
+          <text x={pad + plotW * 0.75} y={pad + plotH - 10} textAnchor="middle" fill="#FBBF24" fontSize="11" fontWeight="700">{lens.labels.br.name}</text>
           <line x1={pad + plotW / 2} y1={pad} x2={pad + plotW / 2} y2={pad + plotH} stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
           <line x1={pad} y1={pad + plotH / 2} x2={pad + plotW} y2={pad + plotH / 2} stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
-          <text x={pad + plotW / 2} y={h - 4} textAnchor="middle" fill="#94A3B8" fontSize="10" fontWeight="500">{xLabel}</text>
-          <text x={12} y={pad + plotH / 2} textAnchor="middle" fill="#94A3B8" fontSize="10" fontWeight="500" transform={`rotate(-90, 12, ${pad + plotH / 2})`}>{yLabel}</text>
-          {tools.map((tool, i) => {
-            const cx = pad + (tool.x / 100) * plotW;
-            const cy = pad + plotH - (tool.y / 100) * plotH;
-            const isHovered = hoveredTool === tool.name;
-            const color = categoryColors[tool.category] || "#9CA3AF";
+          <text x={pad + plotW / 2} y={h - 6} textAnchor="middle" fill="#94A3B8" fontSize="12" fontWeight="600">{lens.xLabel}</text>
+          <text x={14} y={pad + plotH / 2} textAnchor="middle" fill="#94A3B8" fontSize="12" fontWeight="600" transform={`rotate(-90, 14, ${pad + plotH / 2})`}>{lens.yLabel}</text>
+          {tools.map((tool) => {
+            const [cx, cy] = toXY(tool);
+            const isOn = hovered === tool.name || selected === tool.name;
+            const dim = (hovered || selected) && !isOn;
+            const color = CATEGORY_COLORS[tool.category] || "#9CA3AF";
+            const isMethod = tool.kind === "method";
             return (
-              <g key={i} onMouseEnter={() => setHoveredTool(tool.name)} onMouseLeave={() => setHoveredTool(null)} style={{ cursor: "pointer" }}>
-                {isHovered && <circle cx={cx} cy={cy} r="16" fill={color} opacity="0.15" />}
-                <circle cx={cx} cy={cy} r={isHovered ? 6 : 4.5} fill={color} stroke={isHovered ? "#fff" : "none"} strokeWidth="1.5" opacity={hoveredTool && !isHovered ? 0.3 : 1} />
-                {isHovered && (
-                  <g>
-                    <rect x={cx - 90} y={cy - 52} width="180" height="40" rx="6" fill="#1E293B" stroke={color} strokeWidth="1" />
-                    <text x={cx} y={cy - 37} textAnchor="middle" fill="#F1F5F9" fontSize="9" fontWeight="700">{tool.name}</text>
-                    <text x={cx} y={cy - 24} textAnchor="middle" fill="#94A3B8" fontSize="7.5">{tool.note.slice(0, 45)}{tool.note.length > 45 ? "..." : ""}</text>
-                  </g>
+              <g key={tool.name}
+                onMouseEnter={() => onHover(tool.name)}
+                onMouseLeave={() => onHover(null)}
+                onClick={() => onSelect(tool.name)}
+                style={{ cursor: "pointer" }}
+                opacity={dim ? 0.22 : 1}
+              >
+                {isOn && <circle cx={cx} cy={cy} r="18" fill={color} opacity="0.16" />}
+                {isMethod ? (
+                  <rect x={cx - 6} y={cy - 6} width="12" height="12" transform={`rotate(45 ${cx} ${cy})`} fill={color} stroke={isOn ? "#fff" : "#0B1120"} strokeWidth="1.5" />
+                ) : (
+                  <circle cx={cx} cy={cy} r={isOn ? 7 : 5.5} fill={color} stroke={isOn ? "#fff" : "#0B1120"} strokeWidth="1.4" />
+                )}
+                {isOn && (
+                  <text x={cx} y={cy - 16} textAnchor="middle" fill="#F8FAFC" fontSize="11" fontWeight="800">{tool.name}</text>
                 )}
               </g>
             );
           })}
         </svg>
       );
-    };
-    const ToolRow = ({ tool, isHovered, onHover, onLeave }) => {
-      const color = categoryColors[tool.category] || "#9CA3AF";
-      return (
-        <div onMouseEnter={onHover} onMouseLeave={onLeave} style={{
-          display: "flex", alignItems: "center", gap: "8px", padding: "6px 10px", borderRadius: "6px",
-          background: isHovered ? "rgba(59,130,246,0.08)" : "transparent", transition: "background 0.15s", cursor: "pointer",
-        }}>
-          <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: color, flexShrink: 0 }} />
-          <span style={{ fontSize: "12px", fontWeight: "600", color: "#E2E8F0", minWidth: "120px" }}>{tool.name}</span>
-          <span style={{ fontSize: "10px", color: "#64748B", padding: "1px 6px", background: "#1E293B", borderRadius: "4px" }}>{tool.category}</span>
-        </div>
-      );
-    };
+    }
+
     function GovernmentAINavigator() {
-      const [activeQuadrant, setActiveQuadrant] = useState(0);
-      const [hoveredTool, setHoveredTool] = useState(null);
+      const [lensIdx, setLensIdx] = useState(0);
+      const [hovered, setHovered] = useState(null);
+      const [selected, setSelected] = useState("Caliber");
+      const [query, setQuery] = useState("");
+      const [catFilter, setCatFilter] = useState("All");
       const [formSubmitted, setFormSubmitted] = useState(false);
-      const q = quadrants[activeQuadrant];
-      const allCategories = [...new Set(q.tools.map(t => t.category))].sort();
+      const lens = LENSES[lensIdx];
+
+      const categories = useMemo(() => ["All", ...[...new Set(TOOLS.map(t => t.category))].sort()], []);
+
+      const visible = useMemo(() => {
+        const q = query.trim().toLowerCase();
+        return TOOLS.filter((t) => {
+          if (catFilter !== "All" && t.category !== catFilter) return false;
+          if (!q) return true;
+          const blob = [t.name, t.category, t.notes.readiness, t.notes.impact, t.notes.independence].join(" ").toLowerCase();
+          return blob.includes(q);
+        });
+      }, [query, catFilter]);
+
+      const selectedTool = TOOLS.find(t => t.name === (selected || hovered)) || null;
+      const activeName = selected || hovered;
+
       useEffect(() => {
         const markSubmitted = () => setFormSubmitted(true);
-        const onHsEvent = () => markSubmitted();
         const onMessage = (event) => {
           const data = event && event.data;
           if (!data) return;
           if (typeof data === "string" && data.indexOf("onFormSubmitted") !== -1) markSubmitted();
           if (data.eventName === "onFormSubmitted" || (data.type === "hsFormCallback" && data.eventName === "onFormSubmitted")) markSubmitted();
         };
-        window.addEventListener("hs-form-event:on-submission:success", onHsEvent);
+        window.addEventListener("hs-form-event:on-submission:success", markSubmitted);
         window.addEventListener("message", onMessage);
         return () => {
-          window.removeEventListener("hs-form-event:on-submission:success", onHsEvent);
+          window.removeEventListener("hs-form-event:on-submission:success", markSubmitted);
           window.removeEventListener("message", onMessage);
         };
       }, []);
+
+      const grouped = useMemo(() => {
+        const map = {};
+        visible.forEach((t) => {
+          (map[t.category] || (map[t.category] = [])).push(t);
+        });
+        return Object.keys(map).sort().map((cat) => ({ cat, tools: map[cat] }));
+      }, [visible]);
+
+      const jumpTo = (name) => {
+        setSelected(name);
+        setQuery("");
+        setCatFilter("All");
+        const el = document.getElementById("matrix");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+
       return (
-        <div style={{
-          background: "linear-gradient(135deg, #0B1120 0%, #111827 50%, #0F172A 100%)",
-          minHeight: "100vh", color: "#E5E7EB", fontFamily: "'DM Sans', 'Segoe UI', system-ui, sans-serif", padding: "0",
-        }}>
-          {/* Header */}
-          <div style={{ borderBottom: "1px solid #1E293B" }}>
-                           <div style={{ background: "linear-gradient(180deg, #F0EBE3 0%, #E2D9CA 100%)", padding: "20px 32px 16px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "16px", minWidth: 0, flex: "1 1 260px", flexWrap: "wrap" }}>
-              <img src="avero-logo.png" alt="Avèro Advisors" style={{ height: "55px", width: "auto", flexShrink: 0 }} />
-              <div style={{ width: "1px", height: "48px", background: "#1B2A4A", opacity: 0.3, flexShrink: 0 }}></div>
-              <h1 style={{ fontSize: "22px", fontWeight: "800", margin: "0", color: "#1B2A4A", letterSpacing: "0.5px", minWidth: 0, overflowWrap: "break-word", wordBreak: "break-word" }}>"Start at Zero" Government AI Navigator™</h1>
-            </div>
-            <a
-              href="https://startatzero.averoadvisors.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                padding: "6px 14px 6px 8px",
-                borderRadius: "8px",
-                background: "rgba(27,42,74,0.08)",
-                border: "1px solid rgba(27,42,74,0.18)",
-                textDecoration: "none",
-                flexShrink: 0,
-              }}
-            >
-              <img
-                src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/book-cover.jpg"
-                alt="Start at Zero book cover"
-                style={{ height: "44px", width: "auto", borderRadius: "3px", boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}
-              />
-              <div>
-                <div style={{ fontSize: "10px", fontWeight: "700", color: "#C4883C", letterSpacing: "0.5px", textTransform: "uppercase" }}>The Book</div>
-                <div style={{ fontSize: "12px", fontWeight: "700", color: "#1B2A4A", lineHeight: "1.2" }}>Start at Zero</div>
-                <div style={{ fontSize: "10px", color: "#4A5568", lineHeight: "1.2" }}>Get the book →</div>
+        <div className="shell">
+          <header className="cream-bar">
+            <div className="header-row">
+              <div className="brand">
+                <img src="avero-logo.png" alt="Avero Advisors" />
+                <div className="brand-rule" />
+                <div>
+                  <h1>"Start at Zero" Government AI Navigator</h1>
+                  <span className="edition-pill">{EDITION} edition</span>
+                </div>
               </div>
-            </a>
-          </div>
-        </div>
-            <div style={{ padding: "12px 32px 20px", background: "#0B1120", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
-              <p style={{ fontSize: "13px", color: "#94A3B8", margin: "0", maxWidth: "600px", lineHeight: "1.5" }}>
-                Three lenses every government leader needs before investing in AI. Independent analysis of 31 tools across readiness, impact, and independence. August 2026 edition.
-              </p>
-              <a href="#report-download" style={{
-                fontSize: "12px", fontWeight: "700", color: "#E8B86D", textDecoration: "none",
-                padding: "8px 14px", borderRadius: "8px", border: "1px solid rgba(196,136,60,0.45)",
-                background: "rgba(196,136,60,0.12)", whiteSpace: "nowrap",
-              }}>
-                Get the full report ↓
+              <a className="book-cta" href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer">
+                <img src="https://raw.githubusercontent.com/flyingmangoose/avero-executive-glow/main/src/assets/book-cover.jpg" alt="Start at Zero book cover" />
+                <div>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: "#C4883C", letterSpacing: 0.5, textTransform: "uppercase" }}>The book</div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: "#1B2A4A", lineHeight: 1.2 }}>Start at Zero</div>
+                  <div style={{ fontSize: 11, color: "#4A5568" }}>Get the book →</div>
+                </div>
               </a>
             </div>
+          </header>
+
+          <div className="lede-bar">
+            <p className="lede">
+              Three lenses every government leader needs before investing in AI. Independent map of <strong>{PRODUCT_COUNT} products</strong> plus <strong>Caliber</strong> (Avero’s buyer-side engagement method — not a vendor license). Readiness, impact, and lock-in. Buyer-side. No vendor money. {EDITION}.
+            </p>
+            <a className="report-btn" href="#report-download">Get the {EDITION} report ↓</a>
           </div>
-          {/* Quadrant Tabs */}
-          <div style={{ display: "flex", gap: "4px", padding: "16px 32px", overflowX: "auto" }}>
-            {quadrants.map((q, i) => (
-              <button key={q.id} onClick={() => { setActiveQuadrant(i); setHoveredTool(null); }} style={{
-                padding: "14px 24px", borderRadius: "12px",
-                border: activeQuadrant === i ? "2px solid #C4883C" : "2px solid #2D3A50",
-                background: activeQuadrant === i ? "rgba(196,136,60,0.15)" : "rgba(30,41,59,0.5)",
-                color: activeQuadrant === i ? "#E8B86D" : "#94A3B8",
-                fontSize: "15px", fontWeight: "700", cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.2s",
-                boxShadow: activeQuadrant === i ? "0 2px 12px rgba(196,136,60,0.2)" : "none",
-              }}>
-                <span style={{ fontSize: "14px", marginRight: "6px" }}>{i === 0 ? "🎯" : i === 1 ? "⚡" : "🔓"}</span>
-                {q.subtitle}
+
+          <div className="whats-new">
+            <span className="whats-new-label">New this edition</span>
+            {NEW_THIS_EDITION.map((name) => (
+              <button key={name} className={"chip" + (name === "Caliber" ? " method" : "")} onClick={() => jumpTo(name)}>
+                {name}{name === "Caliber" ? " · method" : ""}
               </button>
             ))}
           </div>
-          {/* Main Content */}
-          <div style={{ padding: "0 32px 32px", display: "flex", gap: "24px", flexWrap: "wrap" }}>
-            {/* Chart */}
-            <div style={{ flex: "1 1 500px", minWidth: "320px" }}>
-              <div style={{ background: "#0F172A", borderRadius: "12px", border: "1px solid #1E293B", padding: "16px" }}>
-                <h2 style={{ fontSize: "16px", fontWeight: "700", margin: "0 0 4px 0", color: "#F1F5F9" }}>{q.title}</h2>
-                <p style={{ fontSize: "11px", color: "#64748B", margin: "0 0 8px 0" }}>
-                  X: {q.xDesc} &nbsp;|&nbsp; Y: {q.yDesc}
+
+          <div className="tabs" role="tablist" aria-label="Decision lenses">
+            {LENSES.map((l, i) => (
+              <button key={l.id} role="tab" aria-selected={lensIdx === i} className={"tab" + (lensIdx === i ? " active" : "")}
+                onClick={() => { setLensIdx(i); }}>
+                {l.question}
+                <small>{l.title}</small>
+              </button>
+            ))}
+          </div>
+
+          <div className="toolbar" id="matrix">
+            <input className="search" type="search" placeholder="Search products, notes, categories…"
+              value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search the map" />
+            <div className="filter-row">
+              {categories.map((cat) => {
+                const on = catFilter === cat;
+                const color = cat === "All" ? "#94A3B8" : (CATEGORY_COLORS[cat] || "#94A3B8");
+                return (
+                  <button key={cat} className={"cat-chip" + (on ? " on" : "")}
+                    style={on ? { background: color, color: cat === "All" ? "#0B1120" : "#0B1120" } : { color }}
+                    onClick={() => setCatFilter(cat)}>{cat}</button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="layout">
+            <div className="chart-col">
+              <div className="panel">
+                <h2>{lens.title}</h2>
+                <p className="axis-note"><strong>X:</strong> {lens.xDesc} · <strong>Y:</strong> {lens.yDesc}. Click a dot to pin it. Diamond = Caliber (not a product you license).</p>
+                <QuadrantChart
+                  lens={lens}
+                  tools={visible}
+                  hovered={hovered}
+                  selected={selected}
+                  onHover={setHovered}
+                  onSelect={(name) => setSelected(name === selected ? null : name)}
+                />
+                <p className="axis-note" style={{ margin: "8px 0 0" }}>
+                  Showing {visible.length} of {TOTAL_MAPPED}. Positions are Avero’s independent {EDITION} read — verify every compliance claim on the vendor’s current public page before you buy.
                 </p>
-                <QuadrantChart quadrant={q} hoveredTool={hoveredTool} setHoveredTool={setHoveredTool} />
               </div>
-              {/* Avero CTA */}
-              <div style={{
-                marginTop: "16px", padding: "16px 20px", borderRadius: "10px",
-                background: "linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.08))",
-                border: "1px solid rgba(59,130,246,0.2)",
-              }}>
-                <div style={{ fontSize: "13px", fontWeight: "700", color: "#60A5FA", marginBottom: "4px" }}>
-                  ⚠️ Before you buy any of these tools...
+
+              <div className="callout gold" style={{ marginTop: 16 }}>
+                <div style={{ fontSize: 14, fontWeight: 800, color: "#E8B86D", marginBottom: 6 }}>Caliber is on this map on purpose — and it is not a paid placement.</div>
+                <div style={{ fontSize: 14, color: "#94A3B8", lineHeight: 1.55 }}>
+                  Caliber is how Avero runs buyer-side advisory work (discovery → requirements → scorecards → implementation health). It is <strong style={{ color: "#F1F5F9" }}>not sold as software</strong> and does not compete with Tyler, OpenGov, or Copilot. Agencies get the benefit by engaging Avero; work product belongs to the agency.{" "}
+                  <a className="gold-link" href="https://averocaliber.averoadvisors.com/" target="_blank" rel="noopener noreferrer">Read the public Caliber brief →</a>
                 </div>
-                <div style={{ fontSize: "12px", color: "#94A3B8", lineHeight: "1.5" }}>
-                  Have you completed <span style={{ color: "#F1F5F9", fontWeight: "600" }}>Phase Zero</span>? Independent readiness assessment ensures your AI investment delivers ROI, not regret. Avèro Advisors provides vendor-neutral guidance for government technology decisions. The playbook is in{" "}
-                  <a href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#E8B86D", fontWeight: "600" }}>Start at Zero</a>.
+              </div>
+
+              <div className="callout">
+                <div style={{ fontSize: 14, fontWeight: 800, color: "#60A5FA", marginBottom: 4 }}>Before you buy any of these tools</div>
+                <div style={{ fontSize: 14, color: "#94A3B8", lineHeight: 1.55 }}>
+                  Have you completed <strong style={{ color: "#F1F5F9" }}>Phase Zero</strong>? Data, policy, procurement vehicles, and an executive sponsor beat another pilot. The playbook is in{" "}
+                  <a className="gold-link" href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer">Start at Zero</a>.
                 </div>
               </div>
             </div>
-            {/* Sidebar */}
-            <div style={{ flex: "0 1 320px", minWidth: "280px", display: "flex", flexDirection: "column", gap: "12px" }}>
-              {/* Legend */}
-              <div style={{ padding: "12px 16px", borderRadius: "10px", background: "#0F172A", border: "1px solid #1E293B" }}>
-                <div style={{ fontSize: "10px", fontWeight: "700", color: "#64748B", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "8px" }}>
-                  Quadrant Guide
+
+            <aside className="side">
+              {selectedTool ? (
+                <div className={"detail" + (selectedTool.kind === "method" ? " method" : "")}>
+                  {selectedTool.added && <span className={"badge " + (selectedTool.kind === "method" ? "method" : "new")}>{selectedTool.kind === "method" ? "Avero method · not a vendor SKU" : "New this edition"}</span>}
+                  <div style={{ fontSize: 18, fontWeight: 800, color: "#F8FAFC", margin: "8px 0 4px" }}>{selectedTool.name}</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: CATEGORY_COLORS[selectedTool.category], marginBottom: 10 }}>{selectedTool.category}</div>
+                  <p style={{ fontSize: 14, color: "#CBD5E1", lineHeight: 1.55, margin: 0 }}>{selectedTool.notes[lens.id] || selectedTool.notes.readiness}</p>
+                  {selected && (
+                    <button className="chip" style={{ marginTop: 12 }} onClick={() => setSelected(null)}>Clear pin</button>
+                  )}
                 </div>
-                {Object.entries(q.labels).map(([key, val]) => {
-                  const color = key === "tr" ? "#34D399" : key === "tl" ? "#60A5FA" : key === "br" ? "#FBBF24" : "#F87171";
-                  return (
-                    <div key={key} style={{ display: "flex", gap: "8px", alignItems: "flex-start", marginBottom: "6px" }}>
-                      <div style={{ width: "6px", height: "6px", borderRadius: "2px", background: color, marginTop: "4px", flexShrink: 0 }} />
-                      <div>
-                        <div style={{ fontSize: "11px", fontWeight: "600", color }}>{val.name}</div>
-                        <div style={{ fontSize: "10px", color: "#64748B" }}>{val.desc}</div>
+              ) : (
+                <div className="detail">
+                  <div style={{ fontSize: 12, fontWeight: 800, color: "#64748B", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>Quadrant guide</div>
+                  {Object.entries(lens.labels).map(([key, val]) => {
+                    const color = key === "tr" ? "#34D399" : key === "tl" ? "#60A5FA" : key === "br" ? "#FBBF24" : "#F87171";
+                    return (
+                      <div className="guide-item" key={key}>
+                        <div className="guide-dot" style={{ background: color }} />
+                        <div>
+                          <div style={{ fontSize: 13, fontWeight: 700, color }}>{val.name}</div>
+                          <div style={{ fontSize: 12, color: "#64748B" }}>{val.desc}</div>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-              {/* Tool Directory */}
-              <div style={{ background: "#0F172A", borderRadius: "12px", border: "1px solid #1E293B", padding: "16px", maxHeight: "580px", overflowY: "auto" }}>
-                <h3 style={{ fontSize: "13px", fontWeight: "700", margin: "0 0 12px 0", color: "#94A3B8", textTransform: "uppercase", letterSpacing: "1px" }}>
-                  Tool Directory ({q.tools.length})
-                </h3>
-                {allCategories.map(cat => (
-                  <div key={cat} style={{ marginBottom: "12px" }}>
-                    <div style={{ fontSize: "10px", fontWeight: "700", color: categoryColors[cat], textTransform: "uppercase", letterSpacing: "1px", padding: "0 10px", marginBottom: "4px" }}>
-                      {cat}
-                    </div>
-                    {q.tools.filter(t => t.category === cat).map(tool => (
-                      <ToolRow key={tool.name} tool={tool} isHovered={hoveredTool === tool.name} onHover={() => setHoveredTool(tool.name)} onLeave={() => setHoveredTool(null)} />
+                    );
+                  })}
+                </div>
+              )}
+
+              <div className="panel dir">
+                <h3>Directory ({visible.length})</h3>
+                {grouped.length === 0 && <div className="empty">No matches. Clear search or filters.</div>}
+                {grouped.map(({ cat, tools }) => (
+                  <div key={cat}>
+                    <div className="cat-label" style={{ color: CATEGORY_COLORS[cat] }}>{cat}</div>
+                    {tools.map((tool) => (
+                      <button
+                        key={tool.name}
+                        className={"tool-row" + (activeName === tool.name ? " on" : "") + (tool.kind === "method" ? " method-row" : "")}
+                        onMouseEnter={() => setHovered(tool.name)}
+                        onMouseLeave={() => setHovered(null)}
+                        onClick={() => setSelected(tool.name === selected ? null : tool.name)}
+                      >
+                        <span className={"dot" + (tool.kind === "method" ? " diamond" : "")} style={{ background: CATEGORY_COLORS[tool.category] }} />
+                        <span className="tool-name">{tool.name}</span>
+                        {tool.added && <span className={"badge " + (tool.kind === "method" ? "method" : "new")}>{tool.kind === "method" ? "Method" : "New"}</span>}
+                      </button>
                     ))}
                   </div>
                 ))}
               </div>
-            </div>
+            </aside>
           </div>
-          {/* Report Download Form */}
-          <div id="report-download" style={{
-            padding: "40px 32px",
-            background: "linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.06))",
-            borderTop: "1px solid #1E293B",
-          }}>
-            <div style={{
-              maxWidth: "640px",
-              margin: "0 auto",
-              textAlign: "center",
-            }}>
-              <div style={{ fontSize: "14px", fontWeight: "700", letterSpacing: "2px", color: "#3B82F6", textTransform: "uppercase", marginBottom: "8px" }}>
-                Free Download
-              </div>
-              <h2 style={{
-                fontSize: "22px", fontWeight: "800", margin: "0 0 8px 0",
-                background: "linear-gradient(135deg, #E2E8F0, #94A3B8)",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-              }}>
-                Get the Full Government AI Navigator Report
-              </h2>
-              <p style={{ fontSize: "13px", color: "#64748B", lineHeight: "1.6", margin: "0 0 24px 0" }}>
-                Detailed scoring methodology, vendor deep-dives, and actionable procurement guidance for all 31 tools, delivered as a comprehensive PDF. Updated for August 2026.
+
+          <section id="report-download" className="download">
+            <div className="download-inner">
+              <div className="kicker">Free download</div>
+              <h2>Get the full {EDITION} Government AI Navigator report</h2>
+              <p style={{ fontSize: 15, color: "#94A3B8", lineHeight: 1.65, margin: "0 0 24px" }}>
+                Scoring notes, placement rationale, and procurement questions for all {PRODUCT_COUNT} products, plus an honest page on Caliber (Avero method, not a vendor SKU). PDF delivered after the form. {EDITION} edition.
               </p>
               <div
                 className="hs-form-frame"
@@ -450,38 +859,32 @@
                 data-form-id="172f7965-64e6-448f-b7c9-090efd3722e6"
                 data-portal-id="24211389"
               ></div>
-              <div style={{
-                display: formSubmitted ? "block" : "none",
-                margin: "20px 0 0 0", padding: "16px 18px", borderRadius: "10px",
-                background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.35)",
-                textAlign: "left",
-              }}>
-                <div style={{ fontSize: "14px", fontWeight: "700", color: "#34D399", marginBottom: "6px" }}>Thanks — check your inbox for the PDF.</div>
-                <div style={{ fontSize: "13px", color: "#94A3B8", lineHeight: "1.6" }}>
+              <div className="thanks" style={{ display: formSubmitted ? "block" : "none" }}>
+                <div style={{ fontSize: 15, fontWeight: 800, color: "#34D399", marginBottom: 6 }}>Thanks — check your inbox for the {EDITION} PDF.</div>
+                <div style={{ fontSize: 14, color: "#94A3B8", lineHeight: 1.6 }}>
                   Keep going with{" "}
-                  <a href="https://avavero.substack.com" target="_blank" rel="noopener noreferrer" style={{ color: "#E8B86D", fontWeight: "600" }}>Start at Zero on Substack</a>
+                  <a className="gold-link" href="https://avavero.substack.com" target="_blank" rel="noopener noreferrer">Start at Zero on Substack</a>
                   {" "}and the book{" "}
-                  <a href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#E8B86D", fontWeight: "600" }}>Start at Zero</a>.
+                  <a className="gold-link" href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer">Start at Zero</a>.
                 </div>
               </div>
-              <p style={{ fontSize: "13px", color: "#94A3B8", lineHeight: "1.6", margin: "20px 0 0 0" }}>
-                After you download, stay on the buyer's side of the table: subscribe to{" "}
-                <a href="https://avavero.substack.com" target="_blank" rel="noopener noreferrer" style={{ color: "#E8B86D", fontWeight: "600" }}>Start at Zero on Substack</a>
+              <p style={{ fontSize: 14, color: "#94A3B8", lineHeight: 1.6, margin: "20px 0 0" }}>
+                After you download, stay on the buyer’s side: subscribe to{" "}
+                <a className="gold-link" href="https://avavero.substack.com" target="_blank" rel="noopener noreferrer">Start at Zero on Substack</a>
                 {" "}and get the book at{" "}
-                <a href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#E8B86D", fontWeight: "600" }}>startatzero.averoadvisors.com</a>.
+                <a className="gold-link" href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer">startatzero.averoadvisors.com</a>.
               </p>
             </div>
-          </div>
+          </section>
 
-          {/* Footer */}
-          <div style={{ padding: "16px 32px", borderTop: "1px solid #1E293B", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
-            <div style={{ fontSize: "10px", color: "#475569" }}>© 2026 Avèro Advisors. Independent analysis. Not affiliated with any vendor listed.</div>
-            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
-              <a href="https://avavero.substack.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: "10px", color: "#94A3B8", fontWeight: "600" }}>Start at Zero on Substack</a>
-              <a href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer" style={{ fontSize: "10px", color: "#94A3B8", fontWeight: "600" }}>The book</a>
-              <span style={{ fontSize: "10px", color: "#475569" }}>Data as of August 2026 | Positions reflect Avèro's independent assessment</span>
+          <footer className="footer">
+            <div>© 2026 Avèro Advisors. Independent analysis. Not affiliated with any vendor listed. Caliber is Avero methodology, not a paid product placement.</div>
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+              <a href="https://avavero.substack.com" target="_blank" rel="noopener noreferrer">Start at Zero on Substack</a>
+              <a href="https://startatzero.averoadvisors.com/" target="_blank" rel="noopener noreferrer">The book</a>
+              <span>Data as of {EDITION} · {PRODUCT_COUNT} products + Caliber</span>
             </div>
-          </div>
+          </footer>
         </div>
       );
     }
