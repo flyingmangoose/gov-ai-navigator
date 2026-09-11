@@ -40,7 +40,9 @@ from navigator_pdf_copy import GENERIC_QUESTIONS, QUESTIONS, RATIONALE
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "index.html"
 LOGO_SRC = ROOT / "avero-logo.png"
-OUT_PDF = ROOT / "public" / "Avero_Start-at-Zero_Government-AI-Navigator_Sep2026.pdf"
+# Write outside the static site root. DigitalOcean publishes the repo as-is;
+# a PDF under public/ (or anywhere else in the tree) would be world-downloadable.
+OUT_PDF = ROOT / "artifacts" / "Avero_Start-at-Zero_Government-AI-Navigator_Sep2026.pdf"
 LOGO_CLEAR = Path("/tmp/avero-logo-transparent.png")
 
 NAVY = HexColor("#0B1120")

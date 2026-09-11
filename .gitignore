@@ -1,0 +1,5 @@
+# Generated Navigator PDF — HubSpot upload only. Never commit: this repo is
+# the static publish root (govai.averoadvisors.com), so any tracked PDF is public.
+artifacts/
+public/
+*.pdf
